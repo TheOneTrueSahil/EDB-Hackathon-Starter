@@ -8,33 +8,33 @@ A starter template for building AI agents with [Google ADK](https://google.githu
 flowchart TD
     User(["User / Browser"])
 
-    subgraph CloudRun["Cloud Run — agent-service (us-central1)\n2 GB RAM · 1 vCPU · port 8080"]
-        FastAPI["FastAPI + Uvicorn\nmain.py"]
-        ADK["Google ADK\nbank_agent"]
-        Gemini["Gemini 2.5-flash\nvia GOOGLE_API_KEY"]
-        T1["Tool: customer_id_search\ncustomersearch.py"]
-        T2["Tool: customer_database_search\ncustomersearch.py"]
-        T3["Tool: vertex_vector_search\nproductsearch.py"]
+    subgraph CloudRun["Cloud Run — agent-service (us-central1)<br/>2 GB RAM · 1 vCPU · port 8080"]
+        FastAPI["FastAPI + Uvicorn<br/>main.py"]
+        ADK["Google ADK<br/>bank_agent"]
+        Gemini["Gemini 2.5-flash<br/>via GOOGLE_API_KEY"]
+        T1["Tool: customer_id_search<br/>customersearch.py"]
+        T2["Tool: customer_database_search<br/>customersearch.py"]
+        T3["Tool: vertex_vector_search<br/>productsearch.py"]
     end
 
     subgraph DataStores["Data Stores"]
-        SQLite[("SQLite\nbank_data.db\n(local dev)")]
-        Firestore[("Firestore\n(USE_DATASTORE=true)")]
+        SQLite[("SQLite<br/>bank_data.db<br/>(local dev)")]
+        Firestore[("Firestore<br/>(USE_DATASTORE=true)")]
     end
 
     subgraph VertexSearch["Vertex AI Search (Discovery Engine — global)"]
-        DS["Data Store: website-ds\nPUBLIC_WEBSITE · GENERIC"]
-        Crawler["Target Site Crawler\nwebsite_domain/*"]
-        App["Search App: website-search-app\nENTERPRISE tier · LLM add-on"]
+        DS["Data Store: website-ds<br/>PUBLIC_WEBSITE · GENERIC"]
+        Crawler["Target Site Crawler<br/>website_domain/*"]
+        App["Search App: website-search-app<br/>ENTERPRISE tier · LLM add-on"]
     end
 
     subgraph ArtifactRegistry["Artifact Registry (us-central1)"]
-        Repo["agent-repo (DOCKER)\nagent:latest"]
+        Repo["agent-repo (DOCKER)<br/>agent:latest"]
     end
 
     subgraph DataGen["DataGen Pipeline (local)"]
-        Gen["dataFakeGen.py\n100 customers · 300 accounts\n6-month transactions"]
-        Prep["prepare_for_nosql.py\nCSV → JSON documents"]
+        Gen["dataFakeGen.py<br/>100 customers · 300 accounts<br/>6-month transactions"]
+        Prep["prepare_for_nosql.py<br/>CSV → JSON documents"]
         LocalDB["localdb_setup.py → SQLite"]
         Upload["upload_to_datestore.py → Firestore"]
     end
@@ -43,12 +43,12 @@ flowchart TD
         R1["roles/discoveryengine.viewer"]
         R2["roles/aiplatform.user"]
         R3["roles/datastore.user"]
-        R4["roles/artifactregistry.reader\n→ Compute SA"]
-        R5["roles/run.invoker\n→ allUsers (public)"]
+        R4["roles/artifactregistry.reader<br/>→ Compute SA"]
+        R5["roles/run.invoker<br/>→ allUsers (public)"]
     end
 
     subgraph CloudTrace["Cloud Trace"]
-        Trace["Distributed Tracing\nTRACE_TO_CLOUD=true"]
+        Trace["Distributed Tracing<br/>TRACE_TO_CLOUD=true"]
     end
 
     User -- "HTTPS /dev-ui/" --> FastAPI
