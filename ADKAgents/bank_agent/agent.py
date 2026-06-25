@@ -14,9 +14,8 @@ from .observability import (
 from .prompt import ROOT_AGENT_INSTRUCTION, PROFILER_AGENT_INSTRUCTION, PRODUCT_MATCHER_AGENT_INSTRUCTION
 from .tools.bigquery_tool import run_bigquery_query
 from .tools.customersearch import customer_database_search, customer_id_search
-from .tools.productsearch import vertex_vector_search, get_available_products
+from .tools.productsearch import get_available_products
 from .tools.ecommerce_tools import lookup_user_orders, check_product_stock, sales_reporting_query
-from google.adk.tools import google_search
 
 load_dotenv()
 
@@ -36,19 +35,13 @@ class VertexGemini(Gemini):
 # Initialise OpenTelemetry exporters and the metrics store.
 setup_observability()
 
-def search_lloyds_products(query: str) -> str:
-    """
-    Search Lloyds Bank product pages. https://www.lloydsbank.com/products-and-services.html
-    """
-
-
 # 1. Product Matcher Agent (matches analyzed profile with bank products)
 product_matcher_agent = Agent(
     name="product_matcher",
     model=VertexGemini(model="gemini-2.5-flash"),
     description="An agent that matches a customer's financial profile with Lloyds Bank's product offerings and recommends products with a summary explaining why.",
     instruction=PRODUCT_MATCHER_AGENT_INSTRUCTION,
-    tools=[vertex_vector_search, google_search, get_available_products],
+    tools=[get_available_products],
     before_model_callback=before_model_callback,
     after_model_callback=after_model_callback,
 )
