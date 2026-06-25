@@ -1,7 +1,10 @@
 import os
+import sqlite3
+import pandas as pd
 
 import vertexai
 from google.cloud import discoveryengine_v1beta as discoveryengine
+from google.cloud import bigquery
 from vertexai.generative_models import GenerativeModel
 from dotenv import load_dotenv
 
@@ -90,3 +93,33 @@ def vertex_vector_search(query: str) -> str:
 
     except Exception as e:
         return f"Search Error: {str(e)}"
+
+
+@traced_tool
+def get_available_products() -> str:
+    """Retrieves all available banking products and their details (interest rates, descriptions) from the bank database.
+    
+    Returns:
+        str: A table of products or an error message.
+    """
+    try:
+        bq_dataset = os.getenv("BQ_DATASET", "")
+        project_id = os.getenv("GOOGLE_CLOUD_PROJECT", "")
+
+        if bq_dataset:
+            client = bigquery.Client(project=project_id if project_id else None)
+            query = f"SELECT product_id, product_name, product_type, interest_rate, description FROM `{bq_dataset}.products`"
+            result_df = client.query(query).to_dataframe()
+        else:
+            conn = sqlite3.connect("bank_data.db")
+            query = "SELECT product_id, product_name, product_type, interest_rate, description FROM products"
+            result_df = pd.read_sql_query(query, conn)
+            conn.close()
+
+        if result_df.empty:
+            return "No products found in the database."
+
+        return result_df.to_string(index=False)
+
+    except Exception as e:
+        return f"Database Error: {str(e)}"

@@ -107,10 +107,11 @@ def customer_database_search(tool_context: ToolContext) -> str:
             query = f"""
                 SELECT
                     c.address, c.age, c.customer_id, c.dob, c.gender, c.name, c.phone, c.postcode,
-                    a.product_type, a.balance,
+                    p.product_name AS product_type, a.balance,
                     t.description, t.amount, t.type, t.date
                 FROM `{BQ_DATASET}.customers` c
                 JOIN `{BQ_DATASET}.accounts` a ON c.customer_id = a.customer_id
+                JOIN `{BQ_DATASET}.products` p ON a.product_id = p.product_id
                 LEFT JOIN `{BQ_DATASET}.transactions` t ON a.account_id = t.account_id
                 WHERE c.customer_id = @customer_id
                 ORDER BY t.date DESC
@@ -125,10 +126,11 @@ def customer_database_search(tool_context: ToolContext) -> str:
             query = """
                 SELECT
                     c.address, c.age, c.customer_id, c.dob, c.gender, c.name, c.phone, c.postcode,
-                    a.product_type, a.balance,
+                    p.product_name AS product_type, a.balance,
                     t.description, t.amount, t.type, t.date
                 FROM "customers" c
                 JOIN "accounts" a ON c.customer_id = a.customer_id
+                JOIN "products" p ON a.product_id = p.product_id
                 LEFT JOIN "transactions" t ON a.account_id = t.account_id
                 WHERE c.customer_id = ?
                 ORDER BY t.date DESC

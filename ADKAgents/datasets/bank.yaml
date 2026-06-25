@@ -13,12 +13,21 @@ tables:
       - {name: phone,       type: STRING}
     seed_file: bq_seed/customers.json
 
+  - name: products
+    schema:
+      - {name: product_id,    type: STRING}
+      - {name: product_name,  type: STRING}
+      - {name: product_type,  type: STRING}
+      - {name: interest_rate, type: FLOAT}
+      - {name: description,   type: STRING}
+    seed_file: bq_seed/products.json
+
   - name: accounts
     schema:
-      - {name: account_id,   type: STRING}
-      - {name: customer_id,  type: STRING}
-      - {name: product_type, type: STRING}
-      - {name: balance,      type: FLOAT}
+      - {name: account_id,  type: STRING}
+      - {name: customer_id, type: STRING}
+      - {name: product_id,  type: STRING}
+      - {name: balance,     type: FLOAT}
     seed_file: bq_seed/accounts.json
 
   - name: transactions
