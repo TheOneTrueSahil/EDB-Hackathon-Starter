@@ -36,6 +36,12 @@ class VertexGemini(Gemini):
 # Initialise OpenTelemetry exporters and the metrics store.
 setup_observability()
 
+def search_lloyds_products(query: str) -> str:
+    """
+    Search Lloyds Bank product pages. https://www.lloydsbank.com/products-and-services.html
+    """
+
+
 # 1. Product Matcher Agent (matches analyzed profile with bank products)
 product_matcher_agent = Agent(
     name="product_matcher",
