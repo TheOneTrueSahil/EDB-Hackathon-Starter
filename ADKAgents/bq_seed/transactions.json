@@ -1,19 +1,31 @@
+{"account_id":"A001","description":"Gas & Electricity","amount":-95.00,"type":"debit","date":"2026-06-15"}
 {"account_id":"A001","description":"Supermarket","amount":-45.80,"type":"debit","date":"2026-06-12"}
+{"account_id":"A001","description":"Broadband Bill","amount":-35.00,"type":"debit","date":"2026-06-10"}
+{"account_id":"A001","description":"Monthly Rent","amount":-1200.00,"type":"debit","date":"2026-06-01"}
 {"account_id":"A001","description":"Salary - Acme Corp","amount":3200.00,"type":"credit","date":"2026-06-01"}
 {"account_id":"A001","description":"Streaming Service","amount":-17.99,"type":"debit","date":"2026-05-28"}
 {"account_id":"A001","description":"Electricity Bill","amount":-82.50,"type":"debit","date":"2026-05-20"}
 {"account_id":"A001","description":"Salary - Acme Corp","amount":3200.00,"type":"credit","date":"2026-05-01"}
 {"account_id":"A002","description":"Interest Payment","amount":24.50,"type":"credit","date":"2026-06-01"}
 {"account_id":"A003","description":"Coffee Shop","amount":-4.75,"type":"debit","date":"2026-06-13"}
+{"account_id":"A003","description":"Local Pub & Dining","amount":-45.50,"type":"debit","date":"2026-06-12"}
+{"account_id":"A003","description":"Weekly Groceries","amount":-64.20,"type":"debit","date":"2026-06-08"}
+{"account_id":"A003","description":"Rent Payment","amount":-850.00,"type":"debit","date":"2026-06-01"}
 {"account_id":"A003","description":"Payroll - City Council","amount":2800.00,"type":"credit","date":"2026-06-01"}
 {"account_id":"A003","description":"Online Retailer","amount":-32.99,"type":"debit","date":"2026-05-30"}
 {"account_id":"A003","description":"Council Tax","amount":-145.00,"type":"debit","date":"2026-05-15"}
+{"account_id":"A005","description":"Mobile Phone Bill","amount":-25.00,"type":"debit","date":"2026-06-14"}
 {"account_id":"A005","description":"Freelance Invoice","amount":1500.00,"type":"credit","date":"2026-06-10"}
+{"account_id":"A005","description":"Supermarket","amount":-78.90,"type":"debit","date":"2026-06-05"}
 {"account_id":"A005","description":"Rent","amount":-950.00,"type":"debit","date":"2026-06-01"}
 {"account_id":"A005","description":"Gym Membership","amount":-35.00,"type":"debit","date":"2026-05-25"}
-{"account_id":"A006","description":"Pension","amount":1200.00,"type":"credit","date":"2026-06-01"}
+{"account_id":"A006","description":"Pharmacy","amount":-18.40,"type":"debit","date":"2026-06-11"}
 {"account_id":"A006","description":"Supermarket","amount":-67.30,"type":"debit","date":"2026-06-09"}
-{"account_id":"A008","description":"Salary - EDB Corp","amount":4500.00,"type":"credit","date":"2026-06-01"}
+{"account_id":"A006","description":"House Rent","amount":-600.00,"type":"debit","date":"2026-06-01"}
+{"account_id":"A006","description":"Pension","amount":1200.00,"type":"credit","date":"2026-06-01"}
+{"account_id":"A008","description":"Organic Grocery Store","amount":-95.20,"type":"debit","date":"2026-06-12"}
+{"account_id":"A008","description":"Energy Provider","amount":-110.00,"type":"debit","date":"2026-06-10"}
 {"account_id":"A008","description":"Mortgage Payment","amount":-1200.00,"type":"debit","date":"2026-06-03"}
+{"account_id":"A008","description":"Salary - EDB Corp","amount":4500.00,"type":"credit","date":"2026-06-01"}
 {"account_id":"A008","description":"Holiday Booking","amount":-850.00,"type":"debit","date":"2026-05-22"}
 {"account_id":"A009","description":"ISA Transfer","amount":500.00,"type":"credit","date":"2026-06-01"}
