@@ -90,41 +90,41 @@ locals {
 }
 
 # 3. Create the Data Store
-resource "google_discovery_engine_data_store" "website_datastore" {
-  project                     = var.project_id
-  location                    = "global"
-  data_store_id               = var.data_store_id
-  display_name                = var.data_store_id
-  industry_vertical           = "GENERIC"
-  content_config              = "PUBLIC_WEBSITE"
-  solution_types              = ["SOLUTION_TYPE_SEARCH"]
-  create_advanced_site_search = false
-  depends_on                  = [google_project_service.apis]
-}
+# resource "google_discovery_engine_data_store" "website_datastore" {
+#   project                     = var.project_id
+#   location                    = "global"
+#   data_store_id               = var.data_store_id
+#   display_name                = var.data_store_id
+#   industry_vertical           = "GENERIC"
+#   content_config              = "PUBLIC_WEBSITE"
+#   solution_types              = ["SOLUTION_TYPE_SEARCH"]
+#   create_advanced_site_search = false
+#   depends_on                  = [google_project_service.apis]
+# }
 
-# 4. Crawl all pages under the domain
-resource "google_discovery_engine_target_site" "all_pages" {
-  project              = var.project_id
-  location             = google_discovery_engine_data_store.website_datastore.location
-  data_store_id        = google_discovery_engine_data_store.website_datastore.data_store_id
-  provided_uri_pattern = "${var.website_domain}/*"
-  type                 = "INCLUDE"
-}
+# # 4. Crawl all pages under the domain
+# resource "google_discovery_engine_target_site" "all_pages" {
+#   project              = var.project_id
+#   location             = google_discovery_engine_data_store.website_datastore.location
+#   data_store_id        = google_discovery_engine_data_store.website_datastore.data_store_id
+#   provided_uri_pattern = "${var.website_domain}/*"
+#   type                 = "INCLUDE"
+# }
 
-# 5. Create the Search AI Application
-resource "google_discovery_engine_search_engine" "website_search_app" {
-  project        = var.project_id
-  location       = google_discovery_engine_data_store.website_datastore.location
-  engine_id      = "website-search-app"
-  display_name   = "website-search-app"
-  data_store_ids = [google_discovery_engine_data_store.website_datastore.data_store_id]
-  collection_id  = "default_collection"
+# # 5. Create the Search AI Application
+# resource "google_discovery_engine_search_engine" "website_search_app" {
+#   project        = var.project_id
+#   location       = google_discovery_engine_data_store.website_datastore.location
+#   engine_id      = "website-search-app"
+#   display_name   = "website-search-app"
+#   data_store_ids = [google_discovery_engine_data_store.website_datastore.data_store_id]
+#   collection_id  = "default_collection"
 
-  search_engine_config {
-    search_tier    = "SEARCH_TIER_ENTERPRISE"
-    search_add_ons = ["SEARCH_ADD_ON_LLM"]
-  }
-}
+#   search_engine_config {
+#     search_tier    = "SEARCH_TIER_ENTERPRISE"
+#     search_add_ons = ["SEARCH_ADD_ON_LLM"]
+#   }
+# }
 
 # 6. IAM — grant the agent's identity the roles it needs
 data "google_project" "project" {
@@ -227,10 +227,10 @@ resource "google_cloud_run_v2_service" "agent" {
         name  = "GOOGLE_CLOUD_LOCATION"
         value = "global"
       }
-      env {
-        name  = "VERTEX_DATA_STORE_ID"
-        value = google_discovery_engine_search_engine.website_search_app.engine_id
-      }
+      # env {
+      #   name  = "VERTEX_DATA_STORE_ID"
+      #   value = google_discovery_engine_search_engine.website_search_app.engine_id
+      # }
       env {
         name  = "BQ_DATASET"
         value = var.bq_dataset
@@ -263,11 +263,11 @@ resource "google_cloud_run_v2_service_iam_member" "public_invoker" {
   member   = "allUsers"
 }
 
-# Output the Engine ID — use this as VERTEX_DATA_STORE_ID in your .env
-output "vertex_data_store_id" {
-  description = "Set this as VERTEX_DATA_STORE_ID in bank_agent/.env"
-  value       = google_discovery_engine_search_engine.website_search_app.engine_id
-}
+# # Output the Engine ID — use this as VERTEX_DATA_STORE_ID in your .env
+# output "vertex_data_store_id" {
+#   description = "Set this as VERTEX_DATA_STORE_ID in bank_agent/.env"
+#   value       = google_discovery_engine_search_engine.website_search_app.engine_id
+# }
 
 output "image_url" {
   description = "Fully-qualified container image URL to use as CONTAINER_IMAGE"
