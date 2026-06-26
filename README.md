@@ -4,60 +4,43 @@ A starter template for building AI agents with [Google ADK](https://google.githu
 
 ## Architecture
 
+The Hackathon Starter uses a **Three-Agent Orchestration Setup** built with the Google ADK, dividing concerns into customer interaction, analysis, and product matching:
+
 ```mermaid
 flowchart TD
     User(["User / Browser"])
 
-    subgraph CloudRun["Cloud Run — agent-service (us-central1)<br/>2 GB RAM · 1 vCPU · port 8080"]
-        FastAPI["FastAPI + Uvicorn<br/>main.py"]
-        ADK["Google ADK<br/>bank_agent"]
-        Gemini["Gemini 2.5-flash<br/>via Vertex AI (ADC)"]
-        T1["Tool: customer_id_search<br/>customersearch.py"]
-        T2["Tool: customer_database_search<br/>customersearch.py"]
-        T3["Tool: vertex_vector_search<br/>productsearch.py"]
-        T4["Tool: run_bigquery_query<br/>bigquery_tool.py"]
-        T5["Tool: ecommerce_tools<br/>ecommerce_tools.py"]
+    subgraph EDB["EDB EDB-Hackathon-Starter Multi-Agent Orchestration"]
+        RootAgent["Root Agent (bank_agent)"]
+        ProfilerAgent["Financial Profiler Agent (financial_profiler)"]
+        MatcherAgent["Product Matcher Agent (product_matcher)"]
+
+        T1["Tool: customer_id_search"]
+        T2["Tool: customer_database_search"]
+        T3["Tool: get_available_products"]
     end
 
-    subgraph DataStores["Data Stores"]
-        SQLite[("SQLite<br/>bank_data.db<br/>(local dev)")]
-        BQ[("BigQuery<br/>(BQ_DATASET)")]
+    subgraph Data["Data Stores"]
+        BQ[("BigQuery")]
     end
 
-    subgraph VertexSearch["Vertex AI Search (Discovery Engine — global)"]
-        DS["Data Store: website-ds<br/>PUBLIC_WEBSITE · GENERIC"]
-        Crawler["Target Site Crawler<br/>website_domain/*"]
-        App["Search App: website-search-app<br/>ENTERPRISE tier · LLM add-on"]
-    end
-
-    subgraph ArtifactRegistry["Artifact Registry (us-central1)"]
-        Repo["agent-repo (DOCKER)<br/>agent:latest"]
-    end
-
-    subgraph IAM["IAM Bindings (Terraform-managed)"]
-        R1["roles/discoveryengine.viewer"]
-        R2["roles/aiplatform.user"]
-        R3["roles/bigquery.dataViewer + jobUser"]
-        R4["roles/artifactregistry.reader<br/>→ Compute SA"]
-        R5["roles/run.invoker<br/>→ allUsers (public)"]
-    end
-
-    subgraph CloudTrace["Cloud Trace"]
-        Trace["Distributed Tracing<br/>TRACE_TO_CLOUD=true"]
-    end
-
-    User -- "HTTPS /dev-ui/" --> FastAPI
-    FastAPI --> ADK
-    ADK <--> Gemini
-    ADK --> T1 & T2 & T3 & T4 & T5
-    T1 & T2 --> SQLite
-    T1 & T2 & T4 & T5 --> BQ
-    T3 --> App
-    App --> DS
-    Crawler --> DS
-    Repo -- "pulls image" --> CloudRun
-    FastAPI -- "traces" --> Trace
+    User -- "1. Interacts & requests advice" --> RootAgent
+    RootAgent -- "2. Verifies ID" --> T1
+    T1 -- "Query Customer ID" --> BQ
+    RootAgent -- "3. Delegates (transfer_to_agent)" --> ProfilerAgent
+    ProfilerAgent -- "4. Reads holdings & transactions" --> T2
+    T2 -- "Query Profile/Transactions" --> BQ
+    ProfilerAgent -- "5. Passes profile (transfer_to_agent)" --> MatcherAgent
+    MatcherAgent -- "6. Queries product catalog" --> T3
+    T3 -- "Query Products Table" --> BQ
+    MatcherAgent -- "7. Delivers personalized recommendation" --> User
 ```
+
+### Agent Roles
+
+1. **Root Agent (`bank_agent`)**: Greet customers, verify their identities via `customer_id_search` and delegate product advice requests to the `financial_profiler`.
+2. **Financial Profiler Agent (`financial_profiler`)**: Call `customer_database_search` to load and analyze accounts, transactions, and demographics. Synthesize a comprehensive profile and delegate to `product_matcher`.
+3. **Product Matcher Agent (`product_matcher`)**: Call `get_available_products` to pull available product offerings from the database. Match these options against the customer profile, select the best products, and present them with a warm, personalized explanation.
 
 ## What's Included
 
@@ -372,10 +355,10 @@ from .observability import (
     before_model_callback,
     setup_observability,
 )
-from .prompt import AGENT_INSTRUCTION
+from .prompt import ROOT_AGENT_INSTRUCTION, PROFILER_AGENT_INSTRUCTION, PRODUCT_MATCHER_AGENT_INSTRUCTION
 from .tools.bigquery_tool import run_bigquery_query
 from .tools.customersearch import customer_database_search, customer_id_search
-from .tools.productsearch import vertex_vector_search
+from .tools.productsearch import get_available_products
 from .tools.ecommerce_tools import lookup_user_orders, check_product_stock, sales_reporting_query
 
 load_dotenv()
@@ -396,12 +379,37 @@ class VertexGemini(Gemini):
 # Initialise OpenTelemetry exporters and the metrics store.
 setup_observability()
 
+# 1. Product Matcher Agent
+product_matcher_agent = Agent(
+    name="product_matcher",
+    model=VertexGemini(model="gemini-2.5-flash"),
+    description="Matches customer financial profile with Lloyds Bank offerings.",
+    instruction=PRODUCT_MATCHER_AGENT_INSTRUCTION,
+    tools=[get_available_products],
+    before_model_callback=before_model_callback,
+    after_model_callback=after_model_callback,
+)
+
+# 2. Financial Profiler Agent
+financial_profiler_agent = Agent(
+    name="financial_profiler",
+    model=VertexGemini(model="gemini-2.5-flash"),
+    description="Reviews transaction history to build financial profile.",
+    instruction=PROFILER_AGENT_INSTRUCTION,
+    tools=[customer_database_search],
+    sub_agents=[product_matcher_agent],
+    before_model_callback=before_model_callback,
+    after_model_callback=after_model_callback,
+)
+
+# 3. Root Agent
 root_agent = Agent(
     name="bank_agent",
     model=VertexGemini(model="gemini-2.5-flash"),
     description="A helpful banking assistant.",
-    instruction=AGENT_INSTRUCTION,
-    tools=[customer_id_search, customer_database_search, vertex_vector_search, run_bigquery_query, lookup_user_orders, check_product_stock, sales_reporting_query],
+    instruction=ROOT_AGENT_INSTRUCTION,
+    tools=[customer_id_search, run_bigquery_query, lookup_user_orders, check_product_stock, sales_reporting_query],
+    sub_agents=[financial_profiler_agent],
     before_model_callback=before_model_callback,
     after_model_callback=after_model_callback,
 )
