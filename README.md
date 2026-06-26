@@ -1,6 +1,10 @@
-# Hackathon Starter
+# Hackathon Implmentation
 
-A starter template for building AI agents with [Google ADK](https://google.github.io/adk-docs/), Vertex AI Search, and BigQuery. It includes a vector search tool and a customer database tool — ready for you to wire into your own agent.
+This is a cloud run backend application build using google adk. It implements a multi agent pipeline for providing customer insights, analysing savings habits, account offerings and helping customers reach their financial goals.
+
+The front end for this application can be found here: https://github.com/TheOneTrueSahil/EDB-Hackathon-UI
+
+![Alt text](./screenshots/flutter-ui.png)
 
 ## Architecture
 
