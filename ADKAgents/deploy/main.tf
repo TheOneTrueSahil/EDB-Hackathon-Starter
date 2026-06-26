@@ -197,62 +197,62 @@ resource "google_project_iam_member" "cloudrun_metric_writer" {
 
 
 # 7. Cloud Run service (only when CONTAINER_IMAGE is set)
-resource "google_cloud_run_v2_service" "agent" {
-  count               = var.container_image != "" ? 1 : 0
-  project             = var.project_id
-  name                = "agent-service"
-  location            = "us-central1"
-  deletion_protection = false
+# resource "google_cloud_run_v2_service" "agent" {
+#   count               = var.container_image != "" ? 1 : 0
+#   project             = var.project_id
+#   name                = "agent-service"
+#   location            = "us-central1"
+#   deletion_protection = false
 
-  template {
-    containers {
-      image = var.container_image
+#   template {
+#     containers {
+#       image = var.container_image
 
-      resources {
-        limits = {
-          memory = "2Gi"
-          cpu    = "1"
-        }
-      }
+#       resources {
+#         limits = {
+#           memory = "2Gi"
+#           cpu    = "1"
+#         }
+#       }
 
-      env {
-        name  = "GOOGLE_API_KEY"
-        value = var.google_api_key
-      }
-      env {
-        name  = "GOOGLE_CLOUD_PROJECT"
-        value = var.project_id
-      }
-      env {
-        name  = "GOOGLE_CLOUD_LOCATION"
-        value = "global"
-      }
-      # env {
-      #   name  = "VERTEX_DATA_STORE_ID"
-      #   value = google_discovery_engine_search_engine.website_search_app.engine_id
-      # }
-      env {
-        name  = "BQ_DATASET"
-        value = var.bq_dataset
-      }
-      env {
-        name  = "TRACE_TO_CLOUD"
-        value = "true"
-      }
+#       env {
+#         name  = "GOOGLE_API_KEY"
+#         value = var.google_api_key
+#       }
+#       env {
+#         name  = "GOOGLE_CLOUD_PROJECT"
+#         value = var.project_id
+#       }
+#       env {
+#         name  = "GOOGLE_CLOUD_LOCATION"
+#         value = "global"
+#       }
+#       # env {
+#       #   name  = "VERTEX_DATA_STORE_ID"
+#       #   value = google_discovery_engine_search_engine.website_search_app.engine_id
+#       # }
+#       env {
+#         name  = "BQ_DATASET"
+#         value = var.bq_dataset
+#       }
+#       env {
+#         name  = "TRACE_TO_CLOUD"
+#         value = "true"
+#       }
 
-      startup_probe {
-        http_get {
-          path = "/"
-          port = 8080
-        }
-        initial_delay_seconds = 10
-        period_seconds        = 10
-        timeout_seconds       = 5
-        failure_threshold     = 29
-      }
-    }
-  }
-}
+#       startup_probe {
+#         http_get {
+#           path = "/"
+#           port = 8080
+#         }
+#         initial_delay_seconds = 10
+#         period_seconds        = 10
+#         timeout_seconds       = 5
+#         failure_threshold     = 29
+#       }
+#     }
+#   }
+# }
 
 resource "google_cloud_run_v2_service_iam_member" "public_invoker" {
   count    = var.container_image != "" ? 1 : 0
