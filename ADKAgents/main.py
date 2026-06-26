@@ -39,20 +39,33 @@ class ChatResponse(BaseModel):
 @app.post("/api/chat", response_model=ChatResponse)
 async def api_chat(req: ChatRequest):
     """Simple chat endpoint for external integration (e.g. Flutter app)."""
-    url = f"http://127.0.0.1:{port}/run"
-    
-    payload = {
-        "app_name": "bank_agent",
-        "user_id": req.user_id,
-        "session_id": req.session_id,
-        "new_message": {
-            "parts": [{"text": req.message}]
-        }
-    }
+    session_url = f"http://127.0.0.1:{port}/apps/bank_agent/users/{req.user_id}/sessions/{req.session_id}"
+    run_url = f"http://127.0.0.1:{port}/run"
     
     async with httpx.AsyncClient() as client:
         try:
-            response = await client.post(url, json=payload, timeout=60.0)
+            # Check if session exists; if not, create it
+            session_resp = await client.get(session_url)
+            if session_resp.status_code == 404:
+                create_session_url = f"http://127.0.0.1:{port}/apps/bank_agent/users/{req.user_id}/sessions"
+                create_payload = {
+                    "session_id": req.session_id,
+                    "state": {}
+                }
+                create_resp = await client.post(create_session_url, json=create_payload)
+                if create_resp.status_code not in (200, 201):
+                    raise HTTPException(status_code=create_resp.status_code, detail=f"Failed to auto-create session: {create_resp.text}")
+
+            payload = {
+                "app_name": "bank_agent",
+                "user_id": req.user_id,
+                "session_id": req.session_id,
+                "new_message": {
+                    "parts": [{"text": req.message}]
+                }
+            }
+            
+            response = await client.post(run_url, json=payload, timeout=60.0)
             if response.status_code != 200:
                 raise HTTPException(status_code=response.status_code, detail=f"ADK runner error: {response.text}")
             

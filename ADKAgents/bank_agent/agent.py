@@ -11,7 +11,13 @@ from .observability import (
     before_model_callback,
     setup_observability,
 )
-from .prompt import ROOT_AGENT_INSTRUCTION, PROFILER_AGENT_INSTRUCTION, PRODUCT_MATCHER_AGENT_INSTRUCTION
+from .prompt import (
+    ROOT_AGENT_INSTRUCTION,
+    PROFILER_AGENT_INSTRUCTION,
+    PRODUCT_MATCHER_AGENT_INSTRUCTION,
+    SPENDING_INSIGHTS_AGENT_INSTRUCTION,
+    GOAL_AGENT_INSTRUCTION,
+)
 from .tools.bigquery_tool import run_bigquery_query
 from .tools.customersearch import customer_database_search, customer_id_search
 from .tools.productsearch import get_available_products
@@ -58,6 +64,28 @@ financial_profiler_agent = Agent(
     after_model_callback=after_model_callback,
 )
 
+# 1.5 Spending Insights Agent (analyzes category spending and comparisons)
+spending_insights_agent = Agent(
+    name="spending_insights",
+    model=VertexGemini(model="gemini-2.5-flash"),
+    description="An agent that analyzes category spending, compares it against the previous month, and offers one key recommendation to improve spending habits.",
+    instruction=SPENDING_INSIGHTS_AGENT_INSTRUCTION,
+    tools=[customer_database_search],
+    before_model_callback=before_model_callback,
+    after_model_callback=after_model_callback,
+)
+
+# 1.6 Goal Agent (assists with financial goals and coordinates with the profiler and spending insights agent)
+goal_agent = Agent(
+    name="goal",
+    model=VertexGemini(model="gemini-2.5-flash"),
+    description="An agent that helps the user set and plan for financial goals, coordinating with the financial profiler and spending insights agent to ensure recommendations suit their profile and optimize their savings strategy.",
+    instruction=GOAL_AGENT_INSTRUCTION,
+    sub_agents=[financial_profiler_agent, spending_insights_agent],
+    before_model_callback=before_model_callback,
+    after_model_callback=after_model_callback,
+)
+
 # 3. Root Agent (conversation entrypoint, customer verification, general queries)
 root_agent = Agent(
     name="bank_agent",
@@ -65,7 +93,7 @@ root_agent = Agent(
     description="A helpful banking assistant.",
     instruction=ROOT_AGENT_INSTRUCTION,
     tools=[customer_id_search, run_bigquery_query, lookup_user_orders, check_product_stock, sales_reporting_query],
-    sub_agents=[financial_profiler_agent],
+    sub_agents=[financial_profiler_agent, spending_insights_agent, goal_agent],
     before_model_callback=before_model_callback,
     after_model_callback=after_model_callback,
 )

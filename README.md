@@ -4,43 +4,146 @@ A starter template for building AI agents with [Google ADK](https://google.githu
 
 ## Architecture
 
-The Hackathon Starter uses a **Three-Agent Orchestration Setup** built with the Google ADK, dividing concerns into customer interaction, analysis, and product matching:
+The Multi-Agent Orchestration Setup divides concerns into high-level user intent routing and low-level specialized workflows.
+
+### High-Level Architecture (HLA)
+
+The Root Agent (`bank_agent`) acts as the front desk, handles user greetings, verifies customer identity, and routes the conversation based on the detected user intent.
 
 ```mermaid
 flowchart TD
     User(["User / Browser"])
+    RootAgent["Root Agent (bank_agent)"]
+    T1["Tool: customer_id_search"]
+    BQ[("BigQuery / SQLite")]
 
-    subgraph EDB["EDB EDB-Hackathon-Starter Multi-Agent Orchestration"]
-        RootAgent["Root Agent (bank_agent)"]
-        ProfilerAgent["Financial Profiler Agent (financial_profiler)"]
-        MatcherAgent["Product Matcher Agent (product_matcher)"]
-
-        T1["Tool: customer_id_search"]
-        T2["Tool: customer_database_search"]
-        T3["Tool: get_available_products"]
+    subgraph ServiceableIntents["Serviceable User Intents"]
+        RecsIntent["Product Recommendations / Portfolio Review"]
+        InsightsIntent["Spending Insights / Category Breakdown"]
+        GoalsIntent["Financial Goal Support & Optimization"]
+        GeneralIntent["General / Banking Queries"]
     end
 
-    subgraph Data["Data Stores"]
-        BQ[("BigQuery")]
+    subgraph SubAgents["Specialized Sub-Agents"]
+        Profiler["Financial Profiler Agent"]
+        Spending["Spending Insights Agent"]
+        Goal["Goal Agent"]
     end
 
-    User -- "1. Interacts & requests advice" --> RootAgent
-    RootAgent -- "2. Verifies ID" --> T1
+    User -- "1. Send request" --> RootAgent
+    RootAgent -- "2. Check verification / call tool" --> T1
     T1 -- "Query Customer ID" --> BQ
-    RootAgent -- "3. Delegates (transfer_to_agent)" --> ProfilerAgent
-    ProfilerAgent -- "4. Reads holdings & transactions" --> T2
+    T1 -- "Return Verification Status" --> RootAgent
+
+    %% Intent Routing
+    RootAgent -.-> RecsIntent
+    RootAgent -.-> InsightsIntent
+    RootAgent -.-> GoalsIntent
+    RootAgent -.-> GeneralIntent
+
+    RecsIntent --> Profiler
+    InsightsIntent --> Spending
+    GoalsIntent --> Goal
+    GeneralIntent --> RootAgent
+```
+
+---
+
+### Low-Level Workflows
+
+#### Flow A: Product Recommendations & Holdings Profiling
+This workflow analysis holdings, demographics, and transaction history to match and recommend new products.
+
+```mermaid
+flowchart TD
+    RootAgent["Root Agent (bank_agent)"]
+    ProfilerAgent["Financial Profiler Agent (financial_profiler)"]
+    MatcherAgent["Product Matcher Agent (product_matcher)"]
+    T2["Tool: customer_database_search"]
+    T3["Tool: get_available_products"]
+    BQ[("BigQuery / SQLite")]
+    User(["User / Browser"])
+
+    RootAgent -- "1. Transfer (User wants Product Recommendations)" --> ProfilerAgent
+    ProfilerAgent -- "2. Read holdings & transaction history" --> T2
     T2 -- "Query Profile/Transactions" --> BQ
-    ProfilerAgent -- "5. Passes profile (transfer_to_agent)" --> MatcherAgent
-    MatcherAgent -- "6. Queries product catalog" --> T3
+    T2 -- "Return Data" --> ProfilerAgent
+    ProfilerAgent -- "3. Synthesize profile & transfer" --> MatcherAgent
+    MatcherAgent -- "4. Query product catalog" --> T3
     T3 -- "Query Products Table" --> BQ
-    MatcherAgent -- "7. Delivers personalized recommendation" --> User
+    T3 -- "Return Catalog" --> MatcherAgent
+    MatcherAgent -- "5. Deliver personalized recommendations" --> User
+```
+
+---
+
+#### Flow B: Spending Insights
+This workflow reviews transaction histories to categorize expenses, compare month-over-month shifts, and provide an actionable habit tip.
+
+```mermaid
+flowchart TD
+    RootAgent["Root Agent (bank_agent)"]
+    SpendingInsightsAgent["Spending Insights Agent (spending_insights)"]
+    T2["Tool: customer_database_search"]
+    BQ[("BigQuery / SQLite")]
+    User(["User / Browser"])
+
+    RootAgent -- "1. Transfer (User wants Spending Insights)" --> SpendingInsightsAgent
+    SpendingInsightsAgent -- "2. Fetch transaction history" --> T2
+    T2 -- "Query Transactions" --> BQ
+    T2 -- "Return Data" --> SpendingInsightsAgent
+    SpendingInsightsAgent -- "3. Analyze categories, compare to last month & deliver insights" --> User
+```
+
+---
+
+#### Flow C: Financial Goals (with Savings Optimization)
+This workflow aligns products to customer goals. If a savings component is identified, it queries spending insights to design an optimized savings strategy.
+
+```mermaid
+flowchart TD
+    RootAgent["Root Agent (bank_agent)"]
+    GoalAgent["Goal Agent (goal)"]
+    SpendingAgent["Spending Insights Agent (spending_insights)"]
+    ProfilerAgent["Financial Profiler Agent (financial_profiler)"]
+    MatcherAgent["Product Matcher Agent (product_matcher)"]
+    T2["Tool: customer_database_search"]
+    T3["Tool: get_available_products"]
+    BQ[("BigQuery / SQLite")]
+    User(["User / Browser"])
+
+    RootAgent -- "1. Transfer (User wants to set Goal)" --> GoalAgent
+    GoalAgent -- "2. Elicit goal & check for savings component" --> GoalAgent
+
+    %% Branch: Savings Component
+    GoalAgent -- "3a. Has Savings Component: Request spending insights" --> SpendingAgent
+    SpendingAgent -- "4a. Fetch transactions" --> T2
+    T2 -- "Query Transactions" --> BQ
+    T2 -- "Return Data" --> SpendingAgent
+    SpendingAgent -- "5a. Return category breakdown & recommendations" --> GoalAgent
+    GoalAgent -- "6a. Transfer goal + spending insights" --> ProfilerAgent
+
+    %% Branch: No Savings Component
+    GoalAgent -- "3b. No Savings Component: Direct transfer" --> ProfilerAgent
+
+    %% Common profiling and matching path
+    ProfilerAgent -- "7. Fetch holdings & demographics" --> T2
+    T2 -- "Query holdings/demographics" --> BQ
+    T2 -- "Return Data" --> ProfilerAgent
+    ProfilerAgent -- "8. Synthesize profile + savings strategy & transfer" --> MatcherAgent
+    MatcherAgent -- "9. Query product catalog" --> T3
+    T3 -- "Query Products Table" --> BQ
+    T3 -- "Return Catalog" --> MatcherAgent
+    MatcherAgent -- "10. Deliver goal-aligned recommendations" --> User
 ```
 
 ### Agent Roles
 
-1. **Root Agent (`bank_agent`)**: Greet customers, verify their identities via `customer_id_search` and delegate product advice requests to the `financial_profiler`.
-2. **Financial Profiler Agent (`financial_profiler`)**: Call `customer_database_search` to load and analyze accounts, transactions, and demographics. Synthesize a comprehensive profile and delegate to `product_matcher`.
-3. **Product Matcher Agent (`product_matcher`)**: Call `get_available_products` to pull available product offerings from the database. Match these options against the customer profile, select the best products, and present them with a warm, personalized explanation.
+1. **Root Agent (`bank_agent`)**: Greet customers, verify their identities via `customer_id_search`, and delegate the request to the appropriate sub-agent based on the user's intent.
+2. **Financial Profiler Agent (`financial_profiler`)**: Call `customer_database_search` to load and analyze accounts, transactions, and demographics. Synthesize a comprehensive profile (incorporating the customer's goal and any spending insights if a savings component exists) and delegate to `product_matcher`.
+3. **Product Matcher Agent (`product_matcher`)**: Call `get_available_products` to pull available product offerings from the database. Match these options against the customer profile and goals, select the best products, and present them with a warm, personalized explanation.
+4. **Spending Insights Agent (`spending_insights`)**: Call `customer_database_search` to load transaction history, categorize spending, compare against the previous month, and provide exactly one actionable habit recommendation.
+5. **Goal Agent (`goal`)**: Ask the customer about their financial goals (e.g. saving, buying a home). If the goal has a savings component, it delegates to `spending_insights` first to fetch spending analysis before passing the goal and spending context to `financial_profiler` to construct an optimized savings strategy.
 
 ## What's Included
 
