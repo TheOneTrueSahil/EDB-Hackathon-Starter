@@ -4,7 +4,7 @@ This is a cloud run backend application build using google adk. It implements a 
 
 The front end for this application can be found here: https://github.com/TheOneTrueSahil/EDB-Hackathon-UI
 
-![Alt text](./screenshots/flutter-ui.png)
+<img width="832" height="981" alt="Screenshot 2026-06-26 at 20 54 38" src="https://github.com/user-attachments/assets/5202de7b-487a-443e-b958-acfb2f4e078a" />
 
 ## Architecture
 
