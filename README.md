@@ -514,3 +514,73 @@ uv run tf output -raw vertex_data_store_id
 ```
 
 Once deployed, open `{cloud_run_url}/dev-ui/` to access the agent web interface.
+
+---
+
+## API Integration (Flutter)
+
+To allow external clients, such as a **Flutter application**, to interact directly with the EDB Multi-Agent System, we exposed a simplified chat API endpoint:
+
+### Endpoint: `POST /api/chat`
+
+Sends a message to the EDB agent EDB-Hackathon-Starter E.g. EDB-Hackathon-Starter/ADKAgents and receives a simplified flat text response.
+
+* **Request Body** (`application/json`):
+  ```json
+  {
+    "user_id": "Alice",
+    "session_id": "session_12345",
+    "message": "Please verify me as C001 and recommend some banking products"
+  }
+  ```
+* **Response Body** (`application/json`):
+  ```json
+  {
+    "response": "Hello Alice! I've successfully verified your identity. Based on your current profile, I recommend the Lloyds Easy Saver account (interest rate: 1.50%)...",
+    "session_id": "session_12345"
+  }
+  ```
+
+### Flutter Integration Code Example
+
+Add the `http` package to your Flutter project's `pubspec.yaml` dependencies:
+
+```yaml
+dependencies:
+  http: ^1.2.0
+```
+
+Use the following Dart helper function to call the EDB agent:
+
+```dart
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+/// Sends a prompt to the EDB agent and returns the text response.
+Future<String> queryAgent({
+  required String userId,
+  required String sessionId,
+  required String message,
+  required String cloudRunUrl,
+}) async {
+  final uri = Uri.parse('$cloudRunUrl/api/chat');
+  final headers = {'Content-Type': 'application/json'};
+  final body = jsonEncode({
+    'user_id': userId,
+    'session_id': sessionId,
+    'message': message,
+  });
+
+  try {
+    final response = await http.post(uri, headers: headers, body: body);
+    if (response.statusCode == 200) {
+      final jsonResponse = jsonDecode(response.body);
+      return jsonResponse['response'] as String;
+    } else {
+      throw Exception('Server error: ${response.statusCode} - ${response.body}');
+    }
+  } catch (e) {
+    return 'Error communicating with EDB Agent: $e';
+  }
+}
+```

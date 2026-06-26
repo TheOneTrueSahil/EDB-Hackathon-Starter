@@ -18,9 +18,64 @@ app = get_fast_api_app(
     trace_to_cloud=os.environ.get("TRACE_TO_CLOUD", "false").lower() == "true",
 )
 
-
+import httpx
+from pydantic import BaseModel
+from fastapi import HTTPException
 from fastapi.responses import HTMLResponse
 from bank_agent.observability import store, CostGranularity
+
+
+class ChatRequest(BaseModel):
+    user_id: str
+    session_id: str
+    message: str
+
+
+class ChatResponse(BaseModel):
+    response: str
+    session_id: str
+
+
+@app.post("/api/chat", response_model=ChatResponse)
+async def api_chat(req: ChatRequest):
+    """Simple chat endpoint for external integration (e.g. Flutter app)."""
+    url = f"http://127.0.0.1:{port}/run"
+    
+    payload = {
+        "app_name": "bank_agent",
+        "user_id": req.user_id,
+        "session_id": req.session_id,
+        "new_message": {
+            "parts": [{"text": req.message}]
+        }
+    }
+    
+    async with httpx.AsyncClient() as client:
+        try:
+            response = await client.post(url, json=payload, timeout=60.0)
+            if response.status_code != 200:
+                raise HTTPException(status_code=response.status_code, detail=f"ADK runner error: {response.text}")
+            
+            events = response.json()
+            text_response = ""
+            for event in events:
+                if event.get("type") == "content" or "content" in event:
+                    content_data = event.get("content", {})
+                    parts = content_data.get("parts", [])
+                    for part in parts:
+                        if "text" in part:
+                            text_response += part["text"]
+            
+            if not text_response:
+                text_response = "I did not receive a text response from the agent. Please try again."
+                
+            return ChatResponse(
+                response=text_response.strip(),
+                session_id=req.session_id
+            )
+        except httpx.HTTPError as e:
+            raise HTTPException(status_code=500, detail=f"Failed to communicate with ADK agent: {str(e)}")
+
 
 
 @app.get("/obs", response_class=HTMLResponse)
