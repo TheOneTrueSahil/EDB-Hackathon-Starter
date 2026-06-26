@@ -12,51 +12,44 @@ The Root Agent (`bank_agent`) acts as the front desk, handles user greetings, ve
 
 ```mermaid
 flowchart TD
-    User(["User / Browser"])
-    RootAgent["Root Agent (bank_agent)"]
-    T1["Tool: customer_id_search"]
-    BQ[("BigQuery / SQLite")]
+    User(["👤 User / Browser"])
 
-    subgraph ServiceableIntents["Serviceable User Intents"]
-        RecsIntent["Product Recommendations / Portfolio Review"]
-        InsightsIntent["Spending Insights / Category Breakdown"]
-        GoalsIntent["Financial Goal Support & Optimization"]
-        GeneralIntent["General / Banking Queries"]
-    end
+    Root["🏦 bank_agent\n― Root Agent ―\nVerifies identity · handles general\nqueries · ecommerce · BigQuery"]
 
-    subgraph SubAgents["Specialized Sub-Agents"]
-        Profiler["Financial Profiler Agent"]
-        Spending["Spending Insights Agent"]
+    FP["🔍 financial_profiler\nLoads accounts & transactions\nto build a holistic financial profile"]
 
-        subgraph GoalOrchestrator["Goal Workflow Agents"]
-            Goal["Goal Agent (goal)"]
-            GoalSpending["Goal Spending Insights Agent (goal_spending_insights)"]
-            GoalProfiler["Goal Profiler Agent"]
-            GoalMatcher["Goal Matcher Agent"]
-        end
-    end
+    PM["🎯 product_matcher\nMatches profile against available\nLloyds products & explains why"]
 
-    User -- "1. Send request" --> RootAgent
-    RootAgent -- "2. Check verification / call tool" --> T1
-    T1 -- "Query Customer ID" --> BQ
-    T1 -- "Return Verification Status" --> RootAgent
+    SI["📊 spending_insights\nCategory spend breakdown · month-on-month\ncomparison · one habit recommendation"]
 
-    %% Intent Routing
-    RootAgent -.-> RecsIntent
-    RootAgent -.-> InsightsIntent
-    RootAgent -.-> GoalsIntent
-    RootAgent -.-> GeneralIntent
+    GA["🏆 goal\nCaptures financial goal · decides\nsavings vs non-savings routing"]
 
-    RecsIntent --> Profiler
-    InsightsIntent --> Spending
-    GoalsIntent --> Goal
-    GeneralIntent --> RootAgent
+    NSGP["🔍 non_savings_goal_profiler\nProfiles capability for non-savings\ngoals e.g. mortgage, loan"]
 
-    %% Goal Sub-agent Routing
-    Goal --> GoalSpending
-    GoalSpending --> GoalProfiler
-    Goal --> GoalProfiler
-    GoalProfiler --> GoalMatcher
+    NSGPM["🎯 non_savings_goal_product_matcher\nRecommends products for\nnon-savings goal context"]
+
+    GSI["📊 goal_spending_insights\nAnalyses spending to find savings\nopportunities aligned to the goal"]
+
+    SGP["🔍 savings_goal_profiler\nProfiles savings readiness using\nholdings + spending insights"]
+
+    SGPM["🎯 savings_goal_product_matcher\nRecommends savings products e.g. ISA\nand builds a personalised savings plan"]
+
+    User -->|"Sends message"| Root
+
+    Root -->|"Transfer: product recommendations\nor financial profiling request"| FP
+    Root -->|"Transfer: spending insights\nor monthly comparison request"| SI
+    Root -->|"Transfer: financial goal\nsetting or planning request"| GA
+
+    FP -->|"Transfer: synthesised financial\nprofile + holdings summary"| PM
+
+    GA -->|"Transfer: goal has NO savings\ncomponent e.g. car loan, mortgage"| NSGP
+    GA -->|"Transfer: goal HAS savings\ncomponent e.g. holiday, house deposit"| GSI
+
+    NSGP -->|"Transfer: financial profile\n+ goal context"| NSGPM
+
+    GSI -->|"Transfer: spending analysis\n+ habit tip + goal"| SGP
+
+    SGP -->|"Transfer: full profile\n+ savings readiness"| SGPM
 ```
 
 ---
