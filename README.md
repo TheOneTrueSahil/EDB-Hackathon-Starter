@@ -506,3 +506,15 @@ uv run tf output -raw vertex_data_store_id
 ```
 
 Once deployed, open `{cloud_run_url}/dev-ui/` to access the agent web interface.
+
+## Vector DB / RAG
+#### GCS File upload for RAG
+- GCS , Google Cloud Storage Bucket , 
+- upload json , json should be single line 
+- 
+
+#### Vector Search
+Create a new index in vector 
+vector search -> indexes->Index--> deployment 
+
+### use in code

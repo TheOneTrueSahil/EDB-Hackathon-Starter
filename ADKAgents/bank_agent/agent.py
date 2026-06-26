@@ -11,12 +11,13 @@ from .observability import (
     before_model_callback,
     setup_observability,
 )
-from .prompt import ROOT_AGENT_INSTRUCTION, PROFILER_AGENT_INSTRUCTION, PRODUCT_MATCHER_AGENT_INSTRUCTION
+from .prompt import ROOT_AGENT_INSTRUCTION, PROFILER_AGENT_INSTRUCTION, PRODUCT_MATCHER_AGENT_INSTRUCTION, RECOMMENDATION_AGENT_INSTRUCTION
 from .tools.bigquery_tool import run_bigquery_query
 from .tools.customersearch import customer_database_search, customer_id_search
 from .tools.productsearch import vertex_vector_search, get_available_products
 from .tools.ecommerce_tools import lookup_user_orders, check_product_stock, sales_reporting_query
-from google.adk.tools import google_search
+# from google.adk.tools import google_search
+from .tools.vector_search_tool import vector_search_tool
 
 load_dotenv()
 
@@ -43,12 +44,24 @@ def search_lloyds_products(query: str) -> str:
 
 
 # 1. Product Matcher Agent (matches analyzed profile with bank products)
+recommendation_agent = Agent(
+    name="recommendation_agent",
+    model=VertexGemini(model="gemini-2.5-flash"),
+    description="An agent that matches a customer's financial profile with a RAG DB of successful existing LBG Customer and Product Holding , to recommend Lloyds Bank's product offerings and recommends products with a summary explaining why.",
+    instruction=RECOMMENDATION_AGENT_INSTRUCTION,
+    tools=[vector_search_tool],
+    before_model_callback=before_model_callback,
+    after_model_callback=after_model_callback,
+)
+
+
+# 1. Product Matcher Agent (matches analyzed profile with bank products)
 product_matcher_agent = Agent(
     name="product_matcher",
-    model=VertexGemini(model="gemini-2.5-flash"),
+    model=VertexGemini(model="gemini-3.1-pro-preview"),
     description="An agent that matches a customer's financial profile with Lloyds Bank's product offerings and recommends products with a summary explaining why.",
     instruction=PRODUCT_MATCHER_AGENT_INSTRUCTION,
-    tools=[vertex_vector_search, google_search, get_available_products],
+    tools=[get_available_products],
     before_model_callback=before_model_callback,
     after_model_callback=after_model_callback,
 )
@@ -56,7 +69,7 @@ product_matcher_agent = Agent(
 # 2. Financial Profiler Agent (analyzes customer's accounts/transactions)
 financial_profiler_agent = Agent(
     name="financial_profiler",
-    model=VertexGemini(model="gemini-2.5-flash"),
+    model=VertexGemini(model="gemini-3.1-pro-preview"),
     description="An agent that reviews transactions and existing product holdings of the customer to build a holistic financial profile.",
     instruction=PROFILER_AGENT_INSTRUCTION,
     tools=[customer_database_search],
@@ -65,14 +78,15 @@ financial_profiler_agent = Agent(
     after_model_callback=after_model_callback,
 )
 
+
 # 3. Root Agent (conversation entrypoint, customer verification, general queries)
 root_agent = Agent(
     name="bank_agent",
-    model=VertexGemini(model="gemini-2.5-flash"),
+    model=VertexGemini(model="gemini-3.1-pro-preview"),
     description="A helpful banking assistant.",
     instruction=ROOT_AGENT_INSTRUCTION,
     tools=[customer_id_search, run_bigquery_query, lookup_user_orders, check_product_stock, sales_reporting_query],
-    sub_agents=[financial_profiler_agent],
+    sub_agents=[financial_profiler_agent, recommendation_agent],
     before_model_callback=before_model_callback,
     after_model_callback=after_model_callback,
 )

@@ -1,0 +1,3391 @@
+[
+    {
+        "customer_id": "C001",
+        "name": "Alice Thornton",
+        "dob": "1985-03-12",
+        "postcode": "SW1A 1AA",
+        "address": "10 Downing Street, London",
+        "age": 39,
+        "gender": "F",
+        "phone": "07700900001",
+        "credit_score": 720,
+        "accounts": [
+            {
+                "account_id": "A001",
+                "balance": 2450.75,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLASSIC",
+                    "product_name": "Lloyds Classic Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Standard everyday bank account with no monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Gas & Electricity",
+                        "amount": -95.0,
+                        "type": "debit",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": -45.8,
+                        "type": "debit",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "description": "Broadband Bill",
+                        "amount": -35.0,
+                        "type": "debit",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "description": "Monthly Rent",
+                        "amount": -1200.0,
+                        "type": "debit",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "description": "Salary - Acme Corp",
+                        "amount": 3200.0,
+                        "type": "credit",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": -17.99,
+                        "type": "debit",
+                        "date": "2026-05-28"
+                    },
+                    {
+                        "description": "Electricity Bill",
+                        "amount": -82.5,
+                        "type": "debit",
+                        "date": "2026-05-20"
+                    },
+                    {
+                        "description": "Salary - Acme Corp",
+                        "amount": 3200.0,
+                        "type": "credit",
+                        "date": "2026-05-01"
+                    }
+                ]
+            },
+            {
+                "account_id": "A002",
+                "balance": 12000.0,
+                "product": {
+                    "product_id": "PROD_SAVINGS_EASY",
+                    "product_name": "Lloyds Easy Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 1.5,
+                    "description": "Simple savings account with instant access to your funds."
+                },
+                "transactions": [
+                    {
+                        "description": "Interest Payment",
+                        "amount": 24.5,
+                        "type": "credit",
+                        "date": "2026-06-01"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C002",
+        "name": "Bob Hargreaves",
+        "dob": "1972-07-24",
+        "postcode": "EC1A 1BB",
+        "address": "1 Barbican, London",
+        "age": 52,
+        "gender": "M",
+        "phone": "07700900002",
+        "credit_score": 680,
+        "accounts": [
+            {
+                "account_id": "A003",
+                "balance": 850.2,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLASSIC",
+                    "product_name": "Lloyds Classic Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Standard everyday bank account with no monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Coffee Shop",
+                        "amount": -4.75,
+                        "type": "debit",
+                        "date": "2026-06-13"
+                    },
+                    {
+                        "description": "Local Pub & Dining",
+                        "amount": -45.5,
+                        "type": "debit",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "description": "Weekly Groceries",
+                        "amount": -64.2,
+                        "type": "debit",
+                        "date": "2026-06-08"
+                    },
+                    {
+                        "description": "Rent Payment",
+                        "amount": -850.0,
+                        "type": "debit",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "description": "Payroll - City Council",
+                        "amount": 2800.0,
+                        "type": "credit",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "description": "Online Retailer",
+                        "amount": -32.99,
+                        "type": "debit",
+                        "date": "2026-05-30"
+                    },
+                    {
+                        "description": "Council Tax",
+                        "amount": -145.0,
+                        "type": "debit",
+                        "date": "2026-05-15"
+                    }
+                ]
+            },
+            {
+                "account_id": "A004",
+                "balance": 5500.0,
+                "product": {
+                    "product_id": "PROD_ISA_CASH",
+                    "product_name": "Lloyds Cash ISA",
+                    "product_type": "ISA",
+                    "interest_rate": 4.0,
+                    "description": "Tax-free cash savings account with a fixed or variable interest rate."
+                },
+                "transactions": []
+            }
+        ]
+    },
+    {
+        "customer_id": "C003",
+        "name": "Clara Nguyen",
+        "dob": "1990-11-05",
+        "postcode": "M1 1AE",
+        "address": "1 Piccadilly, Manchester",
+        "age": 34,
+        "gender": "F",
+        "phone": "07700900003",
+        "credit_score": 810,
+        "accounts": [
+            {
+                "account_id": "A005",
+                "balance": 3100.5,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLASSIC",
+                    "product_name": "Lloyds Classic Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Standard everyday bank account with no monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Mobile Phone Bill",
+                        "amount": -25.0,
+                        "type": "debit",
+                        "date": "2026-06-14"
+                    },
+                    {
+                        "description": "Freelance Invoice",
+                        "amount": 1500.0,
+                        "type": "credit",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": -78.9,
+                        "type": "debit",
+                        "date": "2026-06-05"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": -950.0,
+                        "type": "debit",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": -35.0,
+                        "type": "debit",
+                        "date": "2026-05-25"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C004",
+        "name": "David Okonkwo",
+        "dob": "1968-01-30",
+        "postcode": "B1 1BB",
+        "address": "1 Corporation Street, Birmingham",
+        "age": 56,
+        "gender": "M",
+        "phone": "07700900004",
+        "credit_score": 590,
+        "accounts": [
+            {
+                "account_id": "A006",
+                "balance": 420.1,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLASSIC",
+                    "product_name": "Lloyds Classic Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Standard everyday bank account with no monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Pharmacy",
+                        "amount": -18.4,
+                        "type": "debit",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": -67.3,
+                        "type": "debit",
+                        "date": "2026-06-09"
+                    },
+                    {
+                        "description": "House Rent",
+                        "amount": -600.0,
+                        "type": "debit",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "description": "Pension",
+                        "amount": 1200.0,
+                        "type": "credit",
+                        "date": "2026-06-01"
+                    }
+                ]
+            },
+            {
+                "account_id": "A007",
+                "balance": -185000.0,
+                "product": {
+                    "product_id": "PROD_MORTGAGE_FIXED",
+                    "product_name": "Lloyds Fixed Rate Mortgage",
+                    "product_type": "Mortgage",
+                    "interest_rate": 4.75,
+                    "description": "Home mortgage with a fixed interest rate for secure monthly payments."
+                },
+                "transactions": []
+            }
+        ]
+    },
+    {
+        "customer_id": "C005",
+        "name": "Evelyn Marchetti",
+        "dob": "1995-06-18",
+        "postcode": "EH1 1YZ",
+        "address": "1 Royal Mile, Edinburgh",
+        "age": 29,
+        "gender": "F",
+        "phone": "07700900005",
+        "credit_score": 750,
+        "accounts": [
+            {
+                "account_id": "A008",
+                "balance": 6780.0,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLASSIC",
+                    "product_name": "Lloyds Classic Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Standard everyday bank account with no monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Organic Grocery Store",
+                        "amount": -95.2,
+                        "type": "debit",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "description": "Energy Provider",
+                        "amount": -110.0,
+                        "type": "debit",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "description": "Mortgage Payment",
+                        "amount": -1200.0,
+                        "type": "debit",
+                        "date": "2026-06-03"
+                    },
+                    {
+                        "description": "Salary - EDB Corp",
+                        "amount": 4500.0,
+                        "type": "credit",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "description": "Holiday Booking",
+                        "amount": -850.0,
+                        "type": "debit",
+                        "date": "2026-05-22"
+                    }
+                ]
+            },
+            {
+                "account_id": "A009",
+                "balance": 9200.0,
+                "product": {
+                    "product_id": "PROD_SAVINGS_EASY",
+                    "product_name": "Lloyds Easy Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 1.5,
+                    "description": "Simple savings account with instant access to your funds."
+                },
+                "transactions": [
+                    {
+                        "description": "ISA Transfer",
+                        "amount": 500.0,
+                        "type": "credit",
+                        "date": "2026-06-01"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C006",
+        "name": "Benjamin Jones",
+        "dob": "1953-01-27",
+        "postcode": "B1 5AA",
+        "address": "72 High Street, Edinburgh",
+        "age": 73,
+        "gender": "M",
+        "phone": "07700909896",
+        "credit_score": 477,
+        "accounts": [
+            {
+                "account_id": "A010",
+                "balance": 67818.81,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLASSIC",
+                    "product_name": "Lloyds Classic Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Standard everyday bank account with no monthly fee."
+                },
+                "transactions": []
+            }
+        ]
+    },
+    {
+        "customer_id": "C007",
+        "name": "Lucas Brown",
+        "dob": "1999-05-13",
+        "postcode": "SW1A 4BB",
+        "address": "84 High Street, Sheffield",
+        "age": 27,
+        "gender": "M",
+        "phone": "07700908948",
+        "credit_score": 695,
+        "accounts": [
+            {
+                "account_id": "A011",
+                "balance": 43270.97,
+                "product": {
+                    "product_id": "PROD_SAVINGS_CHILD",
+                    "product_name": "Lloyds Smart Start Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 3.15,
+                    "description": "Savings account designed for children aged 11 to 15, offering a competitive variable interest rate."
+                },
+                "transactions": [
+                    {
+                        "description": "Restaurant",
+                        "amount": -333.9,
+                        "type": "debit",
+                        "date": "2026-06-23"
+                    },
+                    {
+                        "description": "Salary",
+                        "amount": 429.98,
+                        "type": "credit",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 1382.61,
+                        "type": "credit",
+                        "date": "2026-06-08"
+                    }
+                ]
+            },
+            {
+                "account_id": "A012",
+                "balance": 56905.33,
+                "product": {
+                    "product_id": "PROD_CURRENT_GOLD",
+                    "product_name": "Lloyds Gold Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Current account with worldwide travel insurance, mobile phone insurance, and breakdown cover for a monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Transport",
+                        "amount": 1061.85,
+                        "type": "credit",
+                        "date": "2026-06-23"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": -413.66,
+                        "type": "debit",
+                        "date": "2026-06-23"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C008",
+        "name": "Amelia Rodriguez",
+        "dob": "1993-03-10",
+        "postcode": "SW1A 4CC",
+        "address": "29 High Street, Birmingham",
+        "age": 33,
+        "gender": "F",
+        "phone": "07700902520",
+        "credit_score": 777,
+        "accounts": [
+            {
+                "account_id": "A013",
+                "balance": 74226.88,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.5,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.5% for 12 months with no early withdrawals."
+                },
+                "transactions": [
+                    {
+                        "description": "Transport",
+                        "amount": 579.78,
+                        "type": "credit",
+                        "date": "2026-06-20"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": -1454.81,
+                        "type": "debit",
+                        "date": "2026-06-06"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": 1124.24,
+                        "type": "credit",
+                        "date": "2026-06-04"
+                    }
+                ]
+            },
+            {
+                "account_id": "A014",
+                "balance": 25621.45,
+                "product": {
+                    "product_id": "PROD_CARD_PLATINUM",
+                    "product_name": "Lloyds Bank Platinum Credit Card",
+                    "product_type": "Credit Card",
+                    "interest_rate": 22.9,
+                    "description": "Credit card featuring 0% interest on balance transfers and purchases for an introductory period."
+                },
+                "transactions": [
+                    {
+                        "description": "Rent",
+                        "amount": -1051.48,
+                        "type": "debit",
+                        "date": "2026-06-05"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": -1240.77,
+                        "type": "debit",
+                        "date": "2026-06-04"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": 932.36,
+                        "type": "credit",
+                        "date": "2026-05-30"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C009",
+        "name": "Mason Smith",
+        "dob": "1973-04-15",
+        "postcode": "M1 1AA",
+        "address": "27 High Street, Leeds",
+        "age": 53,
+        "gender": "M",
+        "phone": "07700909189",
+        "credit_score": 760,
+        "accounts": [
+            {
+                "account_id": "A015",
+                "balance": 39585.64,
+                "product": {
+                    "product_id": "PROD_MORTGAGE_FTB",
+                    "product_name": "Lloyds First Time Buyer Mortgage",
+                    "product_type": "Mortgage",
+                    "interest_rate": 4.99,
+                    "description": "Fixed-rate mortgage designed specifically for first-time home buyers, with flexible deposit terms."
+                },
+                "transactions": [
+                    {
+                        "description": "Gym Membership",
+                        "amount": 867.44,
+                        "type": "credit",
+                        "date": "2026-06-20"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": 646.03,
+                        "type": "credit",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": 1244.54,
+                        "type": "credit",
+                        "date": "2026-06-09"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": -1285.77,
+                        "type": "debit",
+                        "date": "2026-06-08"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": 1044.7,
+                        "type": "credit",
+                        "date": "2026-06-06"
+                    }
+                ]
+            },
+            {
+                "account_id": "A016",
+                "balance": 72126.01,
+                "product": {
+                    "product_id": "PROD_CARD_CHOICE",
+                    "product_name": "Lloyds Bank Choice Credit Card",
+                    "product_type": "Credit Card",
+                    "interest_rate": 19.9,
+                    "description": "Everyday credit card offering flexible rewards or cashback options with low annual rates."
+                },
+                "transactions": [
+                    {
+                        "description": "Salary",
+                        "amount": 855.63,
+                        "type": "credit",
+                        "date": "2026-06-21"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": -341.55,
+                        "type": "debit",
+                        "date": "2026-05-30"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C010",
+        "name": "Charlotte Johnson",
+        "dob": "1950-01-07",
+        "postcode": "L1 9YZ",
+        "address": "60 High Street, London",
+        "age": 76,
+        "gender": "F",
+        "phone": "07700908881",
+        "credit_score": 726,
+        "accounts": [
+            {
+                "account_id": "A017",
+                "balance": 14542.79,
+                "product": {
+                    "product_id": "PROD_ISA_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Cash ISA",
+                    "product_type": "ISA",
+                    "interest_rate": 4.3,
+                    "description": "Tax-free cash savings account with a guaranteed interest rate for 1 year. Early withdrawal charges apply."
+                },
+                "transactions": [
+                    {
+                        "description": "Restaurant",
+                        "amount": -1069.68,
+                        "type": "debit",
+                        "date": "2026-06-22"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": 551.93,
+                        "type": "credit",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": -164.83,
+                        "type": "debit",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": 343.23,
+                        "type": "credit",
+                        "date": "2026-06-07"
+                    }
+                ]
+            },
+            {
+                "account_id": "A018",
+                "balance": 24697.49,
+                "product": {
+                    "product_id": "PROD_CURRENT_GOLD",
+                    "product_name": "Lloyds Gold Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Current account with worldwide travel insurance, mobile phone insurance, and breakdown cover for a monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Rent",
+                        "amount": 739.9,
+                        "type": "credit",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": 1225.11,
+                        "type": "credit",
+                        "date": "2026-06-13"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": 1246.11,
+                        "type": "credit",
+                        "date": "2026-06-09"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": 106.43,
+                        "type": "credit",
+                        "date": "2026-06-08"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C011",
+        "name": "Lucas Williams",
+        "dob": "1967-06-27",
+        "postcode": "M1 6BB",
+        "address": "126 High Street, London",
+        "age": 59,
+        "gender": "M",
+        "phone": "07700908962",
+        "credit_score": 732,
+        "accounts": [
+            {
+                "account_id": "A019",
+                "balance": 47014.02,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLASSIC",
+                    "product_name": "Lloyds Classic Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Standard everyday bank account with no monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Online Order",
+                        "amount": 1221.9,
+                        "type": "credit",
+                        "date": "2026-06-24"
+                    },
+                    {
+                        "description": "Online Order",
+                        "amount": 488.95,
+                        "type": "credit",
+                        "date": "2026-06-14"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": -209.93,
+                        "type": "debit",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": -415.56,
+                        "type": "debit",
+                        "date": "2026-06-06"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": 340.34,
+                        "type": "credit",
+                        "date": "2026-05-28"
+                    }
+                ]
+            },
+            {
+                "account_id": "A020",
+                "balance": 74388.99,
+                "product": {
+                    "product_id": "PROD_CARD_PLATINUM",
+                    "product_name": "Lloyds Bank Platinum Credit Card",
+                    "product_type": "Credit Card",
+                    "interest_rate": 22.9,
+                    "description": "Credit card featuring 0% interest on balance transfers and purchases for an introductory period."
+                },
+                "transactions": [
+                    {
+                        "description": "Salary",
+                        "amount": 985.15,
+                        "type": "credit",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": 929.5,
+                        "type": "credit",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": -89.95,
+                        "type": "debit",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 1128.32,
+                        "type": "credit",
+                        "date": "2026-05-30"
+                    }
+                ]
+            },
+            {
+                "account_id": "A021",
+                "balance": 2555.15,
+                "product": {
+                    "product_id": "PROD_MORTGAGE_FTB",
+                    "product_name": "Lloyds First Time Buyer Mortgage",
+                    "product_type": "Mortgage",
+                    "interest_rate": 4.99,
+                    "description": "Fixed-rate mortgage designed specifically for first-time home buyers, with flexible deposit terms."
+                },
+                "transactions": [
+                    {
+                        "description": "Streaming Service",
+                        "amount": -1234.36,
+                        "type": "debit",
+                        "date": "2026-06-25"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": -892.49,
+                        "type": "debit",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": 1275.92,
+                        "type": "credit",
+                        "date": "2026-05-31"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C012",
+        "name": "Olivia Jones",
+        "dob": "1995-06-11",
+        "postcode": "L1 2BB",
+        "address": "161 High Street, Sheffield",
+        "age": 31,
+        "gender": "F",
+        "phone": "07700909874",
+        "credit_score": 413,
+        "accounts": [
+            {
+                "account_id": "A022",
+                "balance": 34852.43,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLUB",
+                    "product_name": "Club Lloyds Current Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 1.5,
+                    "description": "Premium current account with lifestyle benefits and credit interest on balances up to \u00a35,000."
+                },
+                "transactions": [
+                    {
+                        "description": "Rent",
+                        "amount": 267.42,
+                        "type": "credit",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "description": "Salary",
+                        "amount": 135.45,
+                        "type": "credit",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": -998.09,
+                        "type": "debit",
+                        "date": "2026-05-28"
+                    }
+                ]
+            },
+            {
+                "account_id": "A023",
+                "balance": 10015.25,
+                "product": {
+                    "product_id": "PROD_ISA_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Cash ISA",
+                    "product_type": "ISA",
+                    "interest_rate": 4.3,
+                    "description": "Tax-free cash savings account with a guaranteed interest rate for 1 year. Early withdrawal charges apply."
+                },
+                "transactions": []
+            },
+            {
+                "account_id": "A024",
+                "balance": 69274.75,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.5,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.5% for 12 months with no early withdrawals."
+                },
+                "transactions": []
+            }
+        ]
+    },
+    {
+        "customer_id": "C013",
+        "name": "Benjamin Martinez",
+        "dob": "1946-06-13",
+        "postcode": "SW1A 4CC",
+        "address": "13 High Street, London",
+        "age": 80,
+        "gender": "M",
+        "phone": "07700905956",
+        "credit_score": 652,
+        "accounts": [
+            {
+                "account_id": "A025",
+                "balance": 48164.38,
+                "product": {
+                    "product_id": "PROD_ISA_CASH",
+                    "product_name": "Lloyds Cash ISA",
+                    "product_type": "ISA",
+                    "interest_rate": 4.0,
+                    "description": "Tax-free cash savings account with a fixed or variable interest rate."
+                },
+                "transactions": []
+            }
+        ]
+    },
+    {
+        "customer_id": "C014",
+        "name": "Mason Brown",
+        "dob": "1999-03-18",
+        "postcode": "L1 5CC",
+        "address": "187 High Street, London",
+        "age": 27,
+        "gender": "M",
+        "phone": "07700904381",
+        "credit_score": 684,
+        "accounts": [
+            {
+                "account_id": "A026",
+                "balance": 4552.71,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.5,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.5% for 12 months with no early withdrawals."
+                },
+                "transactions": [
+                    {
+                        "description": "Transport",
+                        "amount": 560.27,
+                        "type": "credit",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": 1020.13,
+                        "type": "credit",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": -548.45,
+                        "type": "debit",
+                        "date": "2026-06-03"
+                    }
+                ]
+            },
+            {
+                "account_id": "A027",
+                "balance": 72373.77,
+                "product": {
+                    "product_id": "PROD_CURRENT_GOLD",
+                    "product_name": "Lloyds Gold Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Current account with worldwide travel insurance, mobile phone insurance, and breakdown cover for a monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Online Order",
+                        "amount": 1491.46,
+                        "type": "credit",
+                        "date": "2026-06-22"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": 982.03,
+                        "type": "credit",
+                        "date": "2026-06-05"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": -450.97,
+                        "type": "debit",
+                        "date": "2026-06-04"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": 435.98,
+                        "type": "credit",
+                        "date": "2026-05-31"
+                    }
+                ]
+            },
+            {
+                "account_id": "A028",
+                "balance": 68808.5,
+                "product": {
+                    "product_id": "PROD_CARD_PLATINUM",
+                    "product_name": "Lloyds Bank Platinum Credit Card",
+                    "product_type": "Credit Card",
+                    "interest_rate": 22.9,
+                    "description": "Credit card featuring 0% interest on balance transfers and purchases for an introductory period."
+                },
+                "transactions": [
+                    {
+                        "description": "Transport",
+                        "amount": -615.77,
+                        "type": "debit",
+                        "date": "2026-06-15"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C015",
+        "name": "Logan Jones",
+        "dob": "1992-09-09",
+        "postcode": "L1 4AA",
+        "address": "163 High Street, Liverpool",
+        "age": 33,
+        "gender": "M",
+        "phone": "07700906130",
+        "credit_score": 644,
+        "accounts": [
+            {
+                "account_id": "A029",
+                "balance": 61349.24,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLASSIC",
+                    "product_name": "Lloyds Classic Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Standard everyday bank account with no monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Rent",
+                        "amount": 212.74,
+                        "type": "credit",
+                        "date": "2026-06-20"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": 1396.45,
+                        "type": "credit",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": -825.5,
+                        "type": "debit",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 322.29,
+                        "type": "credit",
+                        "date": "2026-06-02"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C016",
+        "name": "Harper Martinez",
+        "dob": "2003-09-28",
+        "postcode": "M1 4YZ",
+        "address": "76 High Street, Liverpool",
+        "age": 22,
+        "gender": "F",
+        "phone": "07700905819",
+        "credit_score": 794,
+        "accounts": [
+            {
+                "account_id": "A030",
+                "balance": 59905.16,
+                "product": {
+                    "product_id": "PROD_SAVINGS_CHILD",
+                    "product_name": "Lloyds Smart Start Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 3.15,
+                    "description": "Savings account designed for children aged 11 to 15, offering a competitive variable interest rate."
+                },
+                "transactions": [
+                    {
+                        "description": "Transport",
+                        "amount": -640.15,
+                        "type": "debit",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": -622.4,
+                        "type": "debit",
+                        "date": "2026-05-28"
+                    }
+                ]
+            },
+            {
+                "account_id": "A031",
+                "balance": 11891.09,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.5,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.5% for 12 months with no early withdrawals."
+                },
+                "transactions": []
+            }
+        ]
+    },
+    {
+        "customer_id": "C017",
+        "name": "Liam Martinez",
+        "dob": "1997-03-30",
+        "postcode": "L1 6BB",
+        "address": "43 High Street, Sheffield",
+        "age": 29,
+        "gender": "M",
+        "phone": "07700901272",
+        "credit_score": 776,
+        "accounts": [
+            {
+                "account_id": "A032",
+                "balance": 22625.88,
+                "product": {
+                    "product_id": "PROD_MORTGAGE_FTB",
+                    "product_name": "Lloyds First Time Buyer Mortgage",
+                    "product_type": "Mortgage",
+                    "interest_rate": 4.99,
+                    "description": "Fixed-rate mortgage designed specifically for first-time home buyers, with flexible deposit terms."
+                },
+                "transactions": [
+                    {
+                        "description": "Online Order",
+                        "amount": 1136.01,
+                        "type": "credit",
+                        "date": "2026-06-19"
+                    }
+                ]
+            },
+            {
+                "account_id": "A033",
+                "balance": 24490.77,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.5,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.5% for 12 months with no early withdrawals."
+                },
+                "transactions": [
+                    {
+                        "description": "Salary",
+                        "amount": 56.8,
+                        "type": "credit",
+                        "date": "2026-06-21"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": -47.39,
+                        "type": "debit",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": -1477.64,
+                        "type": "debit",
+                        "date": "2026-06-11"
+                    }
+                ]
+            },
+            {
+                "account_id": "A034",
+                "balance": 26600.65,
+                "product": {
+                    "product_id": "PROD_CARD_PLATINUM",
+                    "product_name": "Lloyds Bank Platinum Credit Card",
+                    "product_type": "Credit Card",
+                    "interest_rate": 22.9,
+                    "description": "Credit card featuring 0% interest on balance transfers and purchases for an introductory period."
+                },
+                "transactions": [
+                    {
+                        "description": "Coffee Shop",
+                        "amount": -890.1,
+                        "type": "debit",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": 735.06,
+                        "type": "credit",
+                        "date": "2026-06-09"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C018",
+        "name": "Lucas Martinez",
+        "dob": "1951-02-15",
+        "postcode": "B1 9AA",
+        "address": "91 High Street, Manchester",
+        "age": 75,
+        "gender": "M",
+        "phone": "07700903428",
+        "credit_score": 471,
+        "accounts": [
+            {
+                "account_id": "A035",
+                "balance": 25595.19,
+                "product": {
+                    "product_id": "PROD_SAVINGS_EASY",
+                    "product_name": "Lloyds Easy Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 1.5,
+                    "description": "Simple savings account with instant access to your funds."
+                },
+                "transactions": [
+                    {
+                        "description": "Online Order",
+                        "amount": 463.44,
+                        "type": "credit",
+                        "date": "2026-06-21"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": 307.11,
+                        "type": "credit",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": -1396.56,
+                        "type": "debit",
+                        "date": "2026-06-10"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C019",
+        "name": "Noah Williams",
+        "dob": "1975-10-07",
+        "postcode": "B1 3CC",
+        "address": "80 High Street, London",
+        "age": 50,
+        "gender": "M",
+        "phone": "07700905565",
+        "credit_score": 400,
+        "accounts": [
+            {
+                "account_id": "A036",
+                "balance": 42751.24,
+                "product": {
+                    "product_id": "PROD_CURRENT_SILVER",
+                    "product_name": "Lloyds Silver Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Current account with premium benefits including European travel insurance and AA breakdown assistance for a monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 983.45,
+                        "type": "credit",
+                        "date": "2026-06-05"
+                    },
+                    {
+                        "description": "Online Order",
+                        "amount": 249.16,
+                        "type": "credit",
+                        "date": "2026-06-05"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C020",
+        "name": "Harper Smith",
+        "dob": "1962-10-28",
+        "postcode": "M1 9CC",
+        "address": "46 High Street, Glasgow",
+        "age": 63,
+        "gender": "F",
+        "phone": "07700908859",
+        "credit_score": 811,
+        "accounts": [
+            {
+                "account_id": "A037",
+                "balance": 34596.09,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLASSIC",
+                    "product_name": "Lloyds Classic Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Standard everyday bank account with no monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Salary",
+                        "amount": -621.18,
+                        "type": "debit",
+                        "date": "2026-06-23"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 1302.07,
+                        "type": "credit",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": -239.14,
+                        "type": "debit",
+                        "date": "2026-06-13"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": -1177.74,
+                        "type": "debit",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": 1359.03,
+                        "type": "credit",
+                        "date": "2026-05-30"
+                    }
+                ]
+            },
+            {
+                "account_id": "A038",
+                "balance": 32266.99,
+                "product": {
+                    "product_id": "PROD_ISA_CASH",
+                    "product_name": "Lloyds Cash ISA",
+                    "product_type": "ISA",
+                    "interest_rate": 4.0,
+                    "description": "Tax-free cash savings account with a fixed or variable interest rate."
+                },
+                "transactions": [
+                    {
+                        "description": "Supermarket",
+                        "amount": 1137.33,
+                        "type": "credit",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "description": "Online Order",
+                        "amount": -333.99,
+                        "type": "debit",
+                        "date": "2026-06-14"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": 1016.1,
+                        "type": "credit",
+                        "date": "2026-06-08"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": 1427.04,
+                        "type": "credit",
+                        "date": "2026-06-07"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C021",
+        "name": "Liam Johnson",
+        "dob": "1976-03-27",
+        "postcode": "B1 2YZ",
+        "address": "166 High Street, Leeds",
+        "age": 50,
+        "gender": "M",
+        "phone": "07700901040",
+        "credit_score": 478,
+        "accounts": [
+            {
+                "account_id": "A039",
+                "balance": 71516.66,
+                "product": {
+                    "product_id": "PROD_MORTGAGE_FIXED",
+                    "product_name": "Lloyds Fixed Rate Mortgage",
+                    "product_type": "Mortgage",
+                    "interest_rate": 4.75,
+                    "description": "Home mortgage with a fixed interest rate for secure monthly payments."
+                },
+                "transactions": [
+                    {
+                        "description": "Gym Membership",
+                        "amount": 1121.06,
+                        "type": "credit",
+                        "date": "2026-06-21"
+                    },
+                    {
+                        "description": "Salary",
+                        "amount": 1012.77,
+                        "type": "credit",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "description": "Online Order",
+                        "amount": 912.54,
+                        "type": "credit",
+                        "date": "2026-05-31"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": 24.23,
+                        "type": "credit",
+                        "date": "2026-05-31"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": -190.45,
+                        "type": "debit",
+                        "date": "2026-05-27"
+                    }
+                ]
+            },
+            {
+                "account_id": "A040",
+                "balance": 38383.61,
+                "product": {
+                    "product_id": "PROD_CURRENT_GOLD",
+                    "product_name": "Lloyds Gold Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Current account with worldwide travel insurance, mobile phone insurance, and breakdown cover for a monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 1303.75,
+                        "type": "credit",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": -1252.97,
+                        "type": "debit",
+                        "date": "2026-06-14"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": 389.23,
+                        "type": "credit",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": -810.7,
+                        "type": "debit",
+                        "date": "2026-06-08"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": -354.71,
+                        "type": "debit",
+                        "date": "2026-05-30"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C022",
+        "name": "Evelyn Brown",
+        "dob": "1988-10-11",
+        "postcode": "SW1A 8BB",
+        "address": "83 High Street, Leeds",
+        "age": 37,
+        "gender": "F",
+        "phone": "07700905624",
+        "credit_score": 490,
+        "accounts": [
+            {
+                "account_id": "A041",
+                "balance": 69537.48,
+                "product": {
+                    "product_id": "PROD_LOAN_PERSONAL",
+                    "product_name": "Lloyds Bank Personal Loan",
+                    "product_type": "Loan",
+                    "interest_rate": 6.9,
+                    "description": "Unsecured personal loan with fixed monthly repayments for terms from 1 to 7 years."
+                },
+                "transactions": [
+                    {
+                        "description": "Online Order",
+                        "amount": -1385.14,
+                        "type": "debit",
+                        "date": "2026-05-31"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C023",
+        "name": "Elijah Williams",
+        "dob": "1978-06-07",
+        "postcode": "SW1A 2CC",
+        "address": "195 High Street, Glasgow",
+        "age": 48,
+        "gender": "M",
+        "phone": "07700906021",
+        "credit_score": 591,
+        "accounts": [
+            {
+                "account_id": "A042",
+                "balance": 38503.66,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.5,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.5% for 12 months with no early withdrawals."
+                },
+                "transactions": []
+            },
+            {
+                "account_id": "A043",
+                "balance": 67202.3,
+                "product": {
+                    "product_id": "PROD_CURRENT_SILVER",
+                    "product_name": "Lloyds Silver Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Current account with premium benefits including European travel insurance and AA breakdown assistance for a monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 253.37,
+                        "type": "credit",
+                        "date": "2026-06-03"
+                    },
+                    {
+                        "description": "Online Order",
+                        "amount": -1076.24,
+                        "type": "debit",
+                        "date": "2026-05-31"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": -35.57,
+                        "type": "debit",
+                        "date": "2026-05-29"
+                    }
+                ]
+            },
+            {
+                "account_id": "A044",
+                "balance": 11347.56,
+                "product": {
+                    "product_id": "PROD_SAVINGS_EASY",
+                    "product_name": "Lloyds Easy Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 1.5,
+                    "description": "Simple savings account with instant access to your funds."
+                },
+                "transactions": []
+            }
+        ]
+    },
+    {
+        "customer_id": "C024",
+        "name": "Olivia Williams",
+        "dob": "1991-06-07",
+        "postcode": "L1 6BB",
+        "address": "118 High Street, Liverpool",
+        "age": 35,
+        "gender": "F",
+        "phone": "07700901025",
+        "credit_score": 559,
+        "accounts": [
+            {
+                "account_id": "A045",
+                "balance": 38060.64,
+                "product": {
+                    "product_id": "PROD_CARD_PLATINUM",
+                    "product_name": "Lloyds Bank Platinum Credit Card",
+                    "product_type": "Credit Card",
+                    "interest_rate": 22.9,
+                    "description": "Credit card featuring 0% interest on balance transfers and purchases for an introductory period."
+                },
+                "transactions": [
+                    {
+                        "description": "Transport",
+                        "amount": -895.7,
+                        "type": "debit",
+                        "date": "2026-06-21"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": -589.16,
+                        "type": "debit",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": -735.26,
+                        "type": "debit",
+                        "date": "2026-06-05"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 1222.34,
+                        "type": "credit",
+                        "date": "2026-05-27"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C025",
+        "name": "Noah Jones",
+        "dob": "2002-08-18",
+        "postcode": "L1 1CC",
+        "address": "93 High Street, Glasgow",
+        "age": 23,
+        "gender": "M",
+        "phone": "07700904723",
+        "credit_score": 842,
+        "accounts": [
+            {
+                "account_id": "A046",
+                "balance": 51417.31,
+                "product": {
+                    "product_id": "PROD_SAVINGS_CLUB_SAVER",
+                    "product_name": "Club Lloyds Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 5.25,
+                    "description": "High interest savings account for Club Lloyds members, allowing regular monthly deposits."
+                },
+                "transactions": [
+                    {
+                        "description": "Online Order",
+                        "amount": -1460.54,
+                        "type": "debit",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": -743.27,
+                        "type": "debit",
+                        "date": "2026-06-09"
+                    }
+                ]
+            },
+            {
+                "account_id": "A047",
+                "balance": 6714.1,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLUB",
+                    "product_name": "Club Lloyds Current Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 1.5,
+                    "description": "Premium current account with lifestyle benefits and credit interest on balances up to \u00a35,000."
+                },
+                "transactions": [
+                    {
+                        "description": "Gym Membership",
+                        "amount": 990.95,
+                        "type": "credit",
+                        "date": "2026-06-24"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": 1127.0,
+                        "type": "credit",
+                        "date": "2026-06-09"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C026",
+        "name": "Ava Miller",
+        "dob": "1994-03-28",
+        "postcode": "L1 7YZ",
+        "address": "45 High Street, Liverpool",
+        "age": 32,
+        "gender": "F",
+        "phone": "07700904454",
+        "credit_score": 429,
+        "accounts": [
+            {
+                "account_id": "A048",
+                "balance": 31737.81,
+                "product": {
+                    "product_id": "PROD_CARD_PLATINUM",
+                    "product_name": "Lloyds Bank Platinum Credit Card",
+                    "product_type": "Credit Card",
+                    "interest_rate": 22.9,
+                    "description": "Credit card featuring 0% interest on balance transfers and purchases for an introductory period."
+                },
+                "transactions": [
+                    {
+                        "description": "Streaming Service",
+                        "amount": -998.93,
+                        "type": "debit",
+                        "date": "2026-06-13"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C027",
+        "name": "Amelia Miller",
+        "dob": "1986-10-13",
+        "postcode": "B1 8BB",
+        "address": "75 High Street, Sheffield",
+        "age": 39,
+        "gender": "F",
+        "phone": "07700901201",
+        "credit_score": 460,
+        "accounts": [
+            {
+                "account_id": "A049",
+                "balance": 70743.89,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLASSIC",
+                    "product_name": "Lloyds Classic Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Standard everyday bank account with no monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Online Order",
+                        "amount": -78.18,
+                        "type": "debit",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": -744.75,
+                        "type": "debit",
+                        "date": "2026-06-15"
+                    }
+                ]
+            },
+            {
+                "account_id": "A050",
+                "balance": 35783.57,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.5,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.5% for 12 months with no early withdrawals."
+                },
+                "transactions": [
+                    {
+                        "description": "Transport",
+                        "amount": 1348.07,
+                        "type": "credit",
+                        "date": "2026-06-24"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": -336.63,
+                        "type": "debit",
+                        "date": "2026-06-20"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": -1152.27,
+                        "type": "debit",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": -1416.62,
+                        "type": "debit",
+                        "date": "2026-06-06"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C028",
+        "name": "Emma Williams",
+        "dob": "1981-02-09",
+        "postcode": "SW1A 9YZ",
+        "address": "181 High Street, Sheffield",
+        "age": 45,
+        "gender": "F",
+        "phone": "07700906380",
+        "credit_score": 669,
+        "accounts": [
+            {
+                "account_id": "A051",
+                "balance": 53239.0,
+                "product": {
+                    "product_id": "PROD_ISA_INVESTMENT",
+                    "product_name": "Lloyds Stocks & Shares ISA",
+                    "product_type": "ISA",
+                    "interest_rate": 0.0,
+                    "description": "Tax-efficient investment account allowing you to invest in a wide range of funds and shares."
+                },
+                "transactions": [
+                    {
+                        "description": "Supermarket",
+                        "amount": 294.3,
+                        "type": "credit",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": -1494.83,
+                        "type": "debit",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": 841.59,
+                        "type": "credit",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 614.18,
+                        "type": "credit",
+                        "date": "2026-06-04"
+                    }
+                ]
+            },
+            {
+                "account_id": "A052",
+                "balance": 49649.96,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.5,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.5% for 12 months with no early withdrawals."
+                },
+                "transactions": []
+            }
+        ]
+    },
+    {
+        "customer_id": "C029",
+        "name": "Evelyn Williams",
+        "dob": "1966-09-22",
+        "postcode": "B1 3AA",
+        "address": "82 High Street, Sheffield",
+        "age": 59,
+        "gender": "F",
+        "phone": "07700901866",
+        "credit_score": 836,
+        "accounts": [
+            {
+                "account_id": "A053",
+                "balance": 51002.29,
+                "product": {
+                    "product_id": "PROD_ISA_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Cash ISA",
+                    "product_type": "ISA",
+                    "interest_rate": 4.3,
+                    "description": "Tax-free cash savings account with a guaranteed interest rate for 1 year. Early withdrawal charges apply."
+                },
+                "transactions": [
+                    {
+                        "description": "Restaurant",
+                        "amount": 710.58,
+                        "type": "credit",
+                        "date": "2026-06-24"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": 1062.02,
+                        "type": "credit",
+                        "date": "2026-06-20"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": 39.6,
+                        "type": "credit",
+                        "date": "2026-06-14"
+                    }
+                ]
+            },
+            {
+                "account_id": "A054",
+                "balance": 61828.38,
+                "product": {
+                    "product_id": "PROD_CARD_CHOICE",
+                    "product_name": "Lloyds Bank Choice Credit Card",
+                    "product_type": "Credit Card",
+                    "interest_rate": 19.9,
+                    "description": "Everyday credit card offering flexible rewards or cashback options with low annual rates."
+                },
+                "transactions": [
+                    {
+                        "description": "Online Order",
+                        "amount": 1267.07,
+                        "type": "credit",
+                        "date": "2026-06-25"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": 406.72,
+                        "type": "credit",
+                        "date": "2026-06-23"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": -324.51,
+                        "type": "debit",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": 1151.31,
+                        "type": "credit",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": -999.37,
+                        "type": "debit",
+                        "date": "2026-05-29"
+                    }
+                ]
+            },
+            {
+                "account_id": "A055",
+                "balance": 62155.08,
+                "product": {
+                    "product_id": "PROD_SAVINGS_CHILD",
+                    "product_name": "Lloyds Smart Start Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 3.15,
+                    "description": "Savings account designed for children aged 11 to 15, offering a competitive variable interest rate."
+                },
+                "transactions": [
+                    {
+                        "description": "Transport",
+                        "amount": -263.17,
+                        "type": "debit",
+                        "date": "2026-06-13"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C030",
+        "name": "Benjamin Johnson",
+        "dob": "2003-05-14",
+        "postcode": "L1 4BB",
+        "address": "130 High Street, Edinburgh",
+        "age": 23,
+        "gender": "M",
+        "phone": "07700904579",
+        "credit_score": 663,
+        "accounts": [
+            {
+                "account_id": "A056",
+                "balance": 3764.57,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLUB",
+                    "product_name": "Club Lloyds Current Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 1.5,
+                    "description": "Premium current account with lifestyle benefits and credit interest on balances up to \u00a35,000."
+                },
+                "transactions": [
+                    {
+                        "description": "Streaming Service",
+                        "amount": 328.37,
+                        "type": "credit",
+                        "date": "2026-05-28"
+                    }
+                ]
+            },
+            {
+                "account_id": "A057",
+                "balance": 10704.61,
+                "product": {
+                    "product_id": "PROD_CARD_PLATINUM",
+                    "product_name": "Lloyds Bank Platinum Credit Card",
+                    "product_type": "Credit Card",
+                    "interest_rate": 22.9,
+                    "description": "Credit card featuring 0% interest on balance transfers and purchases for an introductory period."
+                },
+                "transactions": [
+                    {
+                        "description": "Online Order",
+                        "amount": 1070.24,
+                        "type": "credit",
+                        "date": "2026-06-21"
+                    },
+                    {
+                        "description": "Online Order",
+                        "amount": -1432.27,
+                        "type": "debit",
+                        "date": "2026-06-20"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": -559.87,
+                        "type": "debit",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "description": "Online Order",
+                        "amount": 676.64,
+                        "type": "credit",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": -828.15,
+                        "type": "debit",
+                        "date": "2026-05-31"
+                    }
+                ]
+            },
+            {
+                "account_id": "A058",
+                "balance": 56493.74,
+                "product": {
+                    "product_id": "PROD_ISA_INVESTMENT",
+                    "product_name": "Lloyds Stocks & Shares ISA",
+                    "product_type": "ISA",
+                    "interest_rate": 0.0,
+                    "description": "Tax-efficient investment account allowing you to invest in a wide range of funds and shares."
+                },
+                "transactions": [
+                    {
+                        "description": "Rent",
+                        "amount": -1297.09,
+                        "type": "debit",
+                        "date": "2026-06-22"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": -444.48,
+                        "type": "debit",
+                        "date": "2026-06-21"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": -784.09,
+                        "type": "debit",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": 444.36,
+                        "type": "credit",
+                        "date": "2026-06-08"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C031",
+        "name": "Harper Garcia",
+        "dob": "1990-05-21",
+        "postcode": "B1 9CC",
+        "address": "192 High Street, Birmingham",
+        "age": 36,
+        "gender": "F",
+        "phone": "07700908590",
+        "credit_score": 836,
+        "accounts": [
+            {
+                "account_id": "A059",
+                "balance": 6239.6,
+                "product": {
+                    "product_id": "PROD_MORTGAGE_FIXED",
+                    "product_name": "Lloyds Fixed Rate Mortgage",
+                    "product_type": "Mortgage",
+                    "interest_rate": 4.75,
+                    "description": "Home mortgage with a fixed interest rate for secure monthly payments."
+                },
+                "transactions": [
+                    {
+                        "description": "Restaurant",
+                        "amount": -193.53,
+                        "type": "debit",
+                        "date": "2026-06-24"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": -266.05,
+                        "type": "debit",
+                        "date": "2026-06-09"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": -947.78,
+                        "type": "debit",
+                        "date": "2026-06-04"
+                    }
+                ]
+            },
+            {
+                "account_id": "A060",
+                "balance": 35012.67,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_2YR",
+                    "product_name": "Lloyds 2 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.25,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.25% for 24 months with no early withdrawals."
+                },
+                "transactions": [
+                    {
+                        "description": "Online Order",
+                        "amount": -190.32,
+                        "type": "debit",
+                        "date": "2026-06-25"
+                    },
+                    {
+                        "description": "Salary",
+                        "amount": 628.42,
+                        "type": "credit",
+                        "date": "2026-06-23"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 1472.34,
+                        "type": "credit",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": -423.34,
+                        "type": "debit",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": 510.04,
+                        "type": "credit",
+                        "date": "2026-06-06"
+                    }
+                ]
+            },
+            {
+                "account_id": "A061",
+                "balance": 18690.73,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.5,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.5% for 12 months with no early withdrawals."
+                },
+                "transactions": [
+                    {
+                        "description": "Supermarket",
+                        "amount": -160.26,
+                        "type": "debit",
+                        "date": "2026-06-23"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": -1178.24,
+                        "type": "debit",
+                        "date": "2026-06-09"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C032",
+        "name": "Harper Martinez",
+        "dob": "1958-10-03",
+        "postcode": "M1 4YZ",
+        "address": "7 High Street, Edinburgh",
+        "age": 67,
+        "gender": "F",
+        "phone": "07700906390",
+        "credit_score": 455,
+        "accounts": [
+            {
+                "account_id": "A062",
+                "balance": 57733.9,
+                "product": {
+                    "product_id": "PROD_CARD_CHOICE",
+                    "product_name": "Lloyds Bank Choice Credit Card",
+                    "product_type": "Credit Card",
+                    "interest_rate": 19.9,
+                    "description": "Everyday credit card offering flexible rewards or cashback options with low annual rates."
+                },
+                "transactions": [
+                    {
+                        "description": "Restaurant",
+                        "amount": -1223.91,
+                        "type": "debit",
+                        "date": "2026-06-20"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": -465.99,
+                        "type": "debit",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": -974.8,
+                        "type": "debit",
+                        "date": "2026-06-06"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": 164.14,
+                        "type": "credit",
+                        "date": "2026-06-04"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 788.66,
+                        "type": "credit",
+                        "date": "2026-06-01"
+                    }
+                ]
+            },
+            {
+                "account_id": "A063",
+                "balance": 42431.62,
+                "product": {
+                    "product_id": "PROD_SAVINGS_CLUB_SAVER",
+                    "product_name": "Club Lloyds Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 5.25,
+                    "description": "High interest savings account for Club Lloyds members, allowing regular monthly deposits."
+                },
+                "transactions": [
+                    {
+                        "description": "Restaurant",
+                        "amount": 1299.86,
+                        "type": "credit",
+                        "date": "2026-06-25"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": 1426.71,
+                        "type": "credit",
+                        "date": "2026-06-23"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": 923.02,
+                        "type": "credit",
+                        "date": "2026-06-22"
+                    },
+                    {
+                        "description": "Salary",
+                        "amount": -500.74,
+                        "type": "debit",
+                        "date": "2026-06-06"
+                    }
+                ]
+            },
+            {
+                "account_id": "A064",
+                "balance": 45377.34,
+                "product": {
+                    "product_id": "PROD_ISA_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Cash ISA",
+                    "product_type": "ISA",
+                    "interest_rate": 4.3,
+                    "description": "Tax-free cash savings account with a guaranteed interest rate for 1 year. Early withdrawal charges apply."
+                },
+                "transactions": []
+            }
+        ]
+    },
+    {
+        "customer_id": "C033",
+        "name": "Charlotte Garcia",
+        "dob": "1978-05-08",
+        "postcode": "M1 8YZ",
+        "address": "121 High Street, Sheffield",
+        "age": 48,
+        "gender": "F",
+        "phone": "07700906735",
+        "credit_score": 829,
+        "accounts": [
+            {
+                "account_id": "A065",
+                "balance": 4198.71,
+                "product": {
+                    "product_id": "PROD_ISA_INVESTMENT",
+                    "product_name": "Lloyds Stocks & Shares ISA",
+                    "product_type": "ISA",
+                    "interest_rate": 0.0,
+                    "description": "Tax-efficient investment account allowing you to invest in a wide range of funds and shares."
+                },
+                "transactions": [
+                    {
+                        "description": "Rent",
+                        "amount": 1449.29,
+                        "type": "credit",
+                        "date": "2026-06-25"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": 145.46,
+                        "type": "credit",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": -975.89,
+                        "type": "debit",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 494.04,
+                        "type": "credit",
+                        "date": "2026-06-13"
+                    }
+                ]
+            },
+            {
+                "account_id": "A066",
+                "balance": 45130.42,
+                "product": {
+                    "product_id": "PROD_SAVINGS_EASY",
+                    "product_name": "Lloyds Easy Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 1.5,
+                    "description": "Simple savings account with instant access to your funds."
+                },
+                "transactions": [
+                    {
+                        "description": "Restaurant",
+                        "amount": -141.92,
+                        "type": "debit",
+                        "date": "2026-06-23"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": -444.33,
+                        "type": "debit",
+                        "date": "2026-06-22"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": -785.0,
+                        "type": "debit",
+                        "date": "2026-06-07"
+                    }
+                ]
+            },
+            {
+                "account_id": "A067",
+                "balance": 50679.36,
+                "product": {
+                    "product_id": "PROD_CARD_CHOICE",
+                    "product_name": "Lloyds Bank Choice Credit Card",
+                    "product_type": "Credit Card",
+                    "interest_rate": 19.9,
+                    "description": "Everyday credit card offering flexible rewards or cashback options with low annual rates."
+                },
+                "transactions": [
+                    {
+                        "description": "Gym Membership",
+                        "amount": -673.48,
+                        "type": "debit",
+                        "date": "2026-05-29"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": 978.34,
+                        "type": "credit",
+                        "date": "2026-05-27"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C034",
+        "name": "Harper Garcia",
+        "dob": "1981-07-04",
+        "postcode": "L1 4CC",
+        "address": "14 High Street, Leeds",
+        "age": 45,
+        "gender": "F",
+        "phone": "07700906423",
+        "credit_score": 606,
+        "accounts": [
+            {
+                "account_id": "A068",
+                "balance": 61113.26,
+                "product": {
+                    "product_id": "PROD_ISA_INVESTMENT",
+                    "product_name": "Lloyds Stocks & Shares ISA",
+                    "product_type": "ISA",
+                    "interest_rate": 0.0,
+                    "description": "Tax-efficient investment account allowing you to invest in a wide range of funds and shares."
+                },
+                "transactions": [
+                    {
+                        "description": "Rent",
+                        "amount": -175.34,
+                        "type": "debit",
+                        "date": "2026-06-21"
+                    }
+                ]
+            },
+            {
+                "account_id": "A069",
+                "balance": 13595.83,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLASSIC",
+                    "product_name": "Lloyds Classic Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Standard everyday bank account with no monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Online Order",
+                        "amount": 486.73,
+                        "type": "credit",
+                        "date": "2026-06-22"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": 1014.79,
+                        "type": "credit",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": -898.32,
+                        "type": "debit",
+                        "date": "2026-06-09"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": 611.22,
+                        "type": "credit",
+                        "date": "2026-05-28"
+                    }
+                ]
+            },
+            {
+                "account_id": "A070",
+                "balance": 44540.92,
+                "product": {
+                    "product_id": "PROD_CARD_PLATINUM",
+                    "product_name": "Lloyds Bank Platinum Credit Card",
+                    "product_type": "Credit Card",
+                    "interest_rate": 22.9,
+                    "description": "Credit card featuring 0% interest on balance transfers and purchases for an introductory period."
+                },
+                "transactions": [
+                    {
+                        "description": "Restaurant",
+                        "amount": -78.77,
+                        "type": "debit",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "description": "Salary",
+                        "amount": 1353.14,
+                        "type": "credit",
+                        "date": "2026-06-01"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C035",
+        "name": "Liam Garcia",
+        "dob": "1952-06-05",
+        "postcode": "L1 5AA",
+        "address": "93 High Street, Manchester",
+        "age": 74,
+        "gender": "M",
+        "phone": "07700906752",
+        "credit_score": 424,
+        "accounts": [
+            {
+                "account_id": "A071",
+                "balance": 53309.57,
+                "product": {
+                    "product_id": "PROD_ISA_INVESTMENT",
+                    "product_name": "Lloyds Stocks & Shares ISA",
+                    "product_type": "ISA",
+                    "interest_rate": 0.0,
+                    "description": "Tax-efficient investment account allowing you to invest in a wide range of funds and shares."
+                },
+                "transactions": [
+                    {
+                        "description": "Transport",
+                        "amount": 913.21,
+                        "type": "credit",
+                        "date": "2026-06-23"
+                    },
+                    {
+                        "description": "Online Order",
+                        "amount": 1366.93,
+                        "type": "credit",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "description": "Salary",
+                        "amount": 522.07,
+                        "type": "credit",
+                        "date": "2026-06-08"
+                    },
+                    {
+                        "description": "Salary",
+                        "amount": -629.78,
+                        "type": "debit",
+                        "date": "2026-06-05"
+                    }
+                ]
+            },
+            {
+                "account_id": "A072",
+                "balance": 41892.72,
+                "product": {
+                    "product_id": "PROD_MORTGAGE_FTB",
+                    "product_name": "Lloyds First Time Buyer Mortgage",
+                    "product_type": "Mortgage",
+                    "interest_rate": 4.99,
+                    "description": "Fixed-rate mortgage designed specifically for first-time home buyers, with flexible deposit terms."
+                },
+                "transactions": [
+                    {
+                        "description": "Online Order",
+                        "amount": 926.37,
+                        "type": "credit",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": -895.58,
+                        "type": "debit",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "description": "Online Order",
+                        "amount": 1444.0,
+                        "type": "credit",
+                        "date": "2026-06-07"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": 865.17,
+                        "type": "credit",
+                        "date": "2026-06-06"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C036",
+        "name": "William Garcia",
+        "dob": "1962-03-16",
+        "postcode": "SW1A 6BB",
+        "address": "124 High Street, London",
+        "age": 64,
+        "gender": "M",
+        "phone": "07700902863",
+        "credit_score": 435,
+        "accounts": [
+            {
+                "account_id": "A073",
+                "balance": 17380.96,
+                "product": {
+                    "product_id": "PROD_LOAN_PERSONAL",
+                    "product_name": "Lloyds Bank Personal Loan",
+                    "product_type": "Loan",
+                    "interest_rate": 6.9,
+                    "description": "Unsecured personal loan with fixed monthly repayments for terms from 1 to 7 years."
+                },
+                "transactions": [
+                    {
+                        "description": "Utility Bill",
+                        "amount": 1370.61,
+                        "type": "credit",
+                        "date": "2026-06-20"
+                    },
+                    {
+                        "description": "Online Order",
+                        "amount": 801.77,
+                        "type": "credit",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": 312.87,
+                        "type": "credit",
+                        "date": "2026-06-04"
+                    }
+                ]
+            },
+            {
+                "account_id": "A074",
+                "balance": 73623.77,
+                "product": {
+                    "product_id": "PROD_SAVINGS_CHILD",
+                    "product_name": "Lloyds Smart Start Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 3.15,
+                    "description": "Savings account designed for children aged 11 to 15, offering a competitive variable interest rate."
+                },
+                "transactions": [
+                    {
+                        "description": "Utility Bill",
+                        "amount": -386.65,
+                        "type": "debit",
+                        "date": "2026-06-22"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": -649.2,
+                        "type": "debit",
+                        "date": "2026-06-21"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": 1334.85,
+                        "type": "credit",
+                        "date": "2026-06-13"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": -1015.47,
+                        "type": "debit",
+                        "date": "2026-06-04"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C037",
+        "name": "Mason Johnson",
+        "dob": "1965-10-02",
+        "postcode": "L1 3YZ",
+        "address": "61 High Street, Birmingham",
+        "age": 60,
+        "gender": "M",
+        "phone": "07700907381",
+        "credit_score": 727,
+        "accounts": [
+            {
+                "account_id": "A075",
+                "balance": 10541.91,
+                "product": {
+                    "product_id": "PROD_SAVINGS_CHILD",
+                    "product_name": "Lloyds Smart Start Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 3.15,
+                    "description": "Savings account designed for children aged 11 to 15, offering a competitive variable interest rate."
+                },
+                "transactions": []
+            },
+            {
+                "account_id": "A076",
+                "balance": 70976.38,
+                "product": {
+                    "product_id": "PROD_MORTGAGE_FIXED",
+                    "product_name": "Lloyds Fixed Rate Mortgage",
+                    "product_type": "Mortgage",
+                    "interest_rate": 4.75,
+                    "description": "Home mortgage with a fixed interest rate for secure monthly payments."
+                },
+                "transactions": [
+                    {
+                        "description": "Supermarket",
+                        "amount": -1449.29,
+                        "type": "debit",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 423.24,
+                        "type": "credit",
+                        "date": "2026-05-30"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C038",
+        "name": "Liam Brown",
+        "dob": "1968-12-12",
+        "postcode": "SW1A 4BB",
+        "address": "21 High Street, Edinburgh",
+        "age": 57,
+        "gender": "M",
+        "phone": "07700904644",
+        "credit_score": 423,
+        "accounts": [
+            {
+                "account_id": "A077",
+                "balance": 33932.78,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_2YR",
+                    "product_name": "Lloyds 2 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.25,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.25% for 24 months with no early withdrawals."
+                },
+                "transactions": []
+            }
+        ]
+    },
+    {
+        "customer_id": "C039",
+        "name": "Logan Williams",
+        "dob": "1970-01-14",
+        "postcode": "L1 1BB",
+        "address": "62 High Street, Leeds",
+        "age": 56,
+        "gender": "M",
+        "phone": "07700905463",
+        "credit_score": 699,
+        "accounts": [
+            {
+                "account_id": "A078",
+                "balance": 30241.78,
+                "product": {
+                    "product_id": "PROD_ISA_INVESTMENT",
+                    "product_name": "Lloyds Stocks & Shares ISA",
+                    "product_type": "ISA",
+                    "interest_rate": 0.0,
+                    "description": "Tax-efficient investment account allowing you to invest in a wide range of funds and shares."
+                },
+                "transactions": [
+                    {
+                        "description": "Rent",
+                        "amount": 938.66,
+                        "type": "credit",
+                        "date": "2026-06-22"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": -1200.0,
+                        "type": "debit",
+                        "date": "2026-06-13"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": -954.47,
+                        "type": "debit",
+                        "date": "2026-06-09"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": -816.8,
+                        "type": "debit",
+                        "date": "2026-06-03"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 230.14,
+                        "type": "credit",
+                        "date": "2026-05-30"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C040",
+        "name": "Lucas Brown",
+        "dob": "2003-12-04",
+        "postcode": "L1 8CC",
+        "address": "18 High Street, Leeds",
+        "age": 22,
+        "gender": "M",
+        "phone": "07700908258",
+        "credit_score": 713,
+        "accounts": [
+            {
+                "account_id": "A079",
+                "balance": 13408.22,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.5,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.5% for 12 months with no early withdrawals."
+                },
+                "transactions": [
+                    {
+                        "description": "Utility Bill",
+                        "amount": -1386.55,
+                        "type": "debit",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": -1038.25,
+                        "type": "debit",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": -572.1,
+                        "type": "debit",
+                        "date": "2026-05-30"
+                    }
+                ]
+            },
+            {
+                "account_id": "A080",
+                "balance": 14092.88,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLASSIC",
+                    "product_name": "Lloyds Classic Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Standard everyday bank account with no monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Rent",
+                        "amount": 620.91,
+                        "type": "credit",
+                        "date": "2026-06-06"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": 1150.9,
+                        "type": "credit",
+                        "date": "2026-06-01"
+                    },
+                    {
+                        "description": "Salary",
+                        "amount": 807.81,
+                        "type": "credit",
+                        "date": "2026-05-30"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": 1419.9,
+                        "type": "credit",
+                        "date": "2026-05-29"
+                    }
+                ]
+            },
+            {
+                "account_id": "A081",
+                "balance": 74590.9,
+                "product": {
+                    "product_id": "PROD_CURRENT_SILVER",
+                    "product_name": "Lloyds Silver Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Current account with premium benefits including European travel insurance and AA breakdown assistance for a monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Online Order",
+                        "amount": -51.73,
+                        "type": "debit",
+                        "date": "2026-06-22"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": -484.13,
+                        "type": "debit",
+                        "date": "2026-06-16"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": -1472.93,
+                        "type": "debit",
+                        "date": "2026-06-09"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": -509.23,
+                        "type": "debit",
+                        "date": "2026-06-02"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": -1162.17,
+                        "type": "debit",
+                        "date": "2026-05-31"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C041",
+        "name": "Amelia Johnson",
+        "dob": "1979-08-22",
+        "postcode": "B1 5YZ",
+        "address": "150 High Street, Manchester",
+        "age": 46,
+        "gender": "F",
+        "phone": "07700905765",
+        "credit_score": 817,
+        "accounts": [
+            {
+                "account_id": "A082",
+                "balance": 44975.46,
+                "product": {
+                    "product_id": "PROD_SAVINGS_CHILD",
+                    "product_name": "Lloyds Smart Start Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 3.15,
+                    "description": "Savings account designed for children aged 11 to 15, offering a competitive variable interest rate."
+                },
+                "transactions": [
+                    {
+                        "description": "Transport",
+                        "amount": 853.68,
+                        "type": "credit",
+                        "date": "2026-06-09"
+                    }
+                ]
+            },
+            {
+                "account_id": "A083",
+                "balance": 26670.87,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_2YR",
+                    "product_name": "Lloyds 2 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.25,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.25% for 24 months with no early withdrawals."
+                },
+                "transactions": [
+                    {
+                        "description": "Coffee Shop",
+                        "amount": 670.06,
+                        "type": "credit",
+                        "date": "2026-06-13"
+                    },
+                    {
+                        "description": "Online Order",
+                        "amount": -907.06,
+                        "type": "debit",
+                        "date": "2026-06-08"
+                    }
+                ]
+            },
+            {
+                "account_id": "A084",
+                "balance": 57313.2,
+                "product": {
+                    "product_id": "PROD_CURRENT_GOLD",
+                    "product_name": "Lloyds Gold Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Current account with worldwide travel insurance, mobile phone insurance, and breakdown cover for a monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Restaurant",
+                        "amount": 1270.23,
+                        "type": "credit",
+                        "date": "2026-06-20"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": 843.73,
+                        "type": "credit",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "description": "Online Order",
+                        "amount": 1336.03,
+                        "type": "credit",
+                        "date": "2026-06-04"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": 1130.2,
+                        "type": "credit",
+                        "date": "2026-06-01"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C042",
+        "name": "Mason Davis",
+        "dob": "1975-02-10",
+        "postcode": "SW1A 6CC",
+        "address": "118 High Street, Glasgow",
+        "age": 51,
+        "gender": "M",
+        "phone": "07700904725",
+        "credit_score": 558,
+        "accounts": [
+            {
+                "account_id": "A085",
+                "balance": 30538.68,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLUB",
+                    "product_name": "Club Lloyds Current Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 1.5,
+                    "description": "Premium current account with lifestyle benefits and credit interest on balances up to \u00a35,000."
+                },
+                "transactions": [
+                    {
+                        "description": "Salary",
+                        "amount": -295.35,
+                        "type": "debit",
+                        "date": "2026-06-20"
+                    },
+                    {
+                        "description": "Salary",
+                        "amount": -23.47,
+                        "type": "debit",
+                        "date": "2026-06-15"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": 693.37,
+                        "type": "credit",
+                        "date": "2026-06-13"
+                    }
+                ]
+            },
+            {
+                "account_id": "A086",
+                "balance": 57905.3,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.5,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.5% for 12 months with no early withdrawals."
+                },
+                "transactions": [
+                    {
+                        "description": "Online Order",
+                        "amount": -769.15,
+                        "type": "debit",
+                        "date": "2026-05-27"
+                    }
+                ]
+            },
+            {
+                "account_id": "A087",
+                "balance": 20971.01,
+                "product": {
+                    "product_id": "PROD_MORTGAGE_FTB",
+                    "product_name": "Lloyds First Time Buyer Mortgage",
+                    "product_type": "Mortgage",
+                    "interest_rate": 4.99,
+                    "description": "Fixed-rate mortgage designed specifically for first-time home buyers, with flexible deposit terms."
+                },
+                "transactions": [
+                    {
+                        "description": "Transport",
+                        "amount": -606.16,
+                        "type": "debit",
+                        "date": "2026-06-21"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": -887.21,
+                        "type": "debit",
+                        "date": "2026-06-13"
+                    },
+                    {
+                        "description": "Transport",
+                        "amount": 896.11,
+                        "type": "credit",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": -1408.74,
+                        "type": "debit",
+                        "date": "2026-06-10"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": -890.53,
+                        "type": "debit",
+                        "date": "2026-06-03"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C043",
+        "name": "Mason Rodriguez",
+        "dob": "1957-09-05",
+        "postcode": "B1 2CC",
+        "address": "185 High Street, Glasgow",
+        "age": 68,
+        "gender": "M",
+        "phone": "07700907323",
+        "credit_score": 675,
+        "accounts": [
+            {
+                "account_id": "A088",
+                "balance": 9396.18,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLASSIC",
+                    "product_name": "Lloyds Classic Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Standard everyday bank account with no monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Rent",
+                        "amount": 318.14,
+                        "type": "credit",
+                        "date": "2026-06-19"
+                    },
+                    {
+                        "description": "Utility Bill",
+                        "amount": 1327.36,
+                        "type": "credit",
+                        "date": "2026-06-18"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": -189.36,
+                        "type": "debit",
+                        "date": "2026-06-18"
+                    }
+                ]
+            },
+            {
+                "account_id": "A089",
+                "balance": 50703.1,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_2YR",
+                    "product_name": "Lloyds 2 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.25,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.25% for 24 months with no early withdrawals."
+                },
+                "transactions": []
+            },
+            {
+                "account_id": "A090",
+                "balance": 66679.82,
+                "product": {
+                    "product_id": "PROD_SAVINGS_EASY",
+                    "product_name": "Lloyds Easy Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 1.5,
+                    "description": "Simple savings account with instant access to your funds."
+                },
+                "transactions": [
+                    {
+                        "description": "Transport",
+                        "amount": 888.46,
+                        "type": "credit",
+                        "date": "2026-06-17"
+                    },
+                    {
+                        "description": "Coffee Shop",
+                        "amount": -185.88,
+                        "type": "debit",
+                        "date": "2026-06-14"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": -756.74,
+                        "type": "debit",
+                        "date": "2026-06-14"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": 188.29,
+                        "type": "credit",
+                        "date": "2026-06-14"
+                    },
+                    {
+                        "description": "Restaurant",
+                        "amount": -1397.88,
+                        "type": "debit",
+                        "date": "2026-06-03"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C044",
+        "name": "James Smith",
+        "dob": "2004-03-05",
+        "postcode": "B1 5CC",
+        "address": "88 High Street, Edinburgh",
+        "age": 22,
+        "gender": "M",
+        "phone": "07700904486",
+        "credit_score": 430,
+        "accounts": [
+            {
+                "account_id": "A091",
+                "balance": 69657.68,
+                "product": {
+                    "product_id": "PROD_CURRENT_CLUB",
+                    "product_name": "Club Lloyds Current Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 1.5,
+                    "description": "Premium current account with lifestyle benefits and credit interest on balances up to \u00a35,000."
+                },
+                "transactions": [
+                    {
+                        "description": "Transport",
+                        "amount": 996.08,
+                        "type": "credit",
+                        "date": "2026-06-24"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": -966.74,
+                        "type": "debit",
+                        "date": "2026-06-02"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": -86.73,
+                        "type": "debit",
+                        "date": "2026-05-27"
+                    }
+                ]
+            },
+            {
+                "account_id": "A092",
+                "balance": 61043.57,
+                "product": {
+                    "product_id": "PROD_CURRENT_SILVER",
+                    "product_name": "Lloyds Silver Account",
+                    "product_type": "Current Account",
+                    "interest_rate": 0.0,
+                    "description": "Current account with premium benefits including European travel insurance and AA breakdown assistance for a monthly fee."
+                },
+                "transactions": [
+                    {
+                        "description": "Streaming Service",
+                        "amount": -753.29,
+                        "type": "debit",
+                        "date": "2026-06-03"
+                    },
+                    {
+                        "description": "Online Order",
+                        "amount": 643.59,
+                        "type": "credit",
+                        "date": "2026-05-30"
+                    },
+                    {
+                        "description": "Supermarket",
+                        "amount": -1166.45,
+                        "type": "debit",
+                        "date": "2026-05-28"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "customer_id": "C045",
+        "name": "Oliver Rodriguez",
+        "dob": "1967-09-25",
+        "postcode": "L1 7BB",
+        "address": "126 High Street, Liverpool",
+        "age": 58,
+        "gender": "M",
+        "phone": "07700909568",
+        "credit_score": 445,
+        "accounts": [
+            {
+                "account_id": "A093",
+                "balance": 45647.15,
+                "product": {
+                    "product_id": "PROD_SAVINGS_FIXED_1YR",
+                    "product_name": "Lloyds 1 Year Fixed Rate Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 4.5,
+                    "description": "Fixed-term savings account offering a guaranteed interest rate of 4.5% for 12 months with no early withdrawals."
+                },
+                "transactions": []
+            },
+            {
+                "account_id": "A094",
+                "balance": 59833.1,
+                "product": {
+                    "product_id": "PROD_CARD_CHOICE",
+                    "product_name": "Lloyds Bank Choice Credit Card",
+                    "product_type": "Credit Card",
+                    "interest_rate": 19.9,
+                    "description": "Everyday credit card offering flexible rewards or cashback options with low annual rates."
+                },
+                "transactions": [
+                    {
+                        "description": "Rent",
+                        "amount": -642.85,
+                        "type": "debit",
+                        "date": "2026-06-11"
+                    },
+                    {
+                        "description": "Gym Membership",
+                        "amount": 1094.95,
+                        "type": "credit",
+                        "date": "2026-06-01"
+                    }
+                ]
+            },
+            {
+                "account_id": "A095",
+                "balance": 13304.22,
+                "product": {
+                    "product_id": "PROD_SAVINGS_CHILD",
+                    "product_name": "Lloyds Smart Start Saver",
+                    "product_type": "Savings Account",
+                    "interest_rate": 3.15,
+                    "description": "Savings account designed for children aged 11 to 15, offering a competitive variable interest rate."
+                },
+                "transactions": [
+                    {
+                        "description": "Salary",
+                        "amount": -34.45,
+                        "type": "debit",
+                        "date": "2026-06-25"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": 822.54,
+                        "type": "credit",
+                        "date": "2026-06-12"
+                    },
+                    {
+                        "description": "Streaming Service",
+                        "amount": 718.91,
+                        "type": "credit",
+                        "date": "2026-06-06"
+                    },
+                    {
+                        "description": "Rent",
+                        "amount": -1403.88,
+                        "type": "debit",
+                        "date": "2026-06-05"
+                    },
+                    {
+                        "description": "Online Order",
+                        "amount": 1381.7,
+                        "type": "credit",
+                        "date": "2026-06-03"
+                    }
+                ]
+            }
+        ]
+    }
+]
