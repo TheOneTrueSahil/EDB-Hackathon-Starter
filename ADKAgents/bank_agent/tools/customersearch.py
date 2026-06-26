@@ -78,6 +78,7 @@ def customer_id_search(customer_id: str, tool_context: ToolContext) -> dict:
 
         tool_context.state["identity_verified"] = True
         tool_context.state["verified_customer_id"] = verified_id
+        tool_context.state["customer_name"] = result.get("name", "")
         result["status"] = "success"
         return result
 

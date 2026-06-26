@@ -27,7 +27,13 @@ flowchart TD
     subgraph SubAgents["Specialized Sub-Agents"]
         Profiler["Financial Profiler Agent"]
         Spending["Spending Insights Agent"]
-        Goal["Goal Agent"]
+
+        subgraph GoalOrchestrator["Goal Workflow Agents"]
+            Goal["Goal Agent (goal)"]
+            GoalSpending["Goal Spending Insights Agent (goal_spending_insights)"]
+            GoalProfiler["Goal Profiler Agent"]
+            GoalMatcher["Goal Matcher Agent"]
+        end
     end
 
     User -- "1. Send request" --> RootAgent
@@ -45,6 +51,12 @@ flowchart TD
     InsightsIntent --> Spending
     GoalsIntent --> Goal
     GeneralIntent --> RootAgent
+
+    %% Goal Sub-agent Routing
+    Goal --> GoalSpending
+    GoalSpending --> GoalProfiler
+    Goal --> GoalProfiler
+    GoalProfiler --> GoalMatcher
 ```
 
 ---
@@ -52,6 +64,7 @@ flowchart TD
 ### Low-Level Workflows
 
 #### Flow A: Product Recommendations & Holdings Profiling
+
 This workflow analysis holdings, demographics, and transaction history to match and recommend new products.
 
 ```mermaid
@@ -78,6 +91,7 @@ flowchart TD
 ---
 
 #### Flow B: Spending Insights
+
 This workflow reviews transaction histories to categorize expenses, compare month-over-month shifts, and provide an actionable habit tip.
 
 ```mermaid
@@ -98,15 +112,16 @@ flowchart TD
 ---
 
 #### Flow C: Financial Goals (with Savings Optimization)
-This workflow aligns products to customer goals. If a savings component is identified, it queries spending insights to design an optimized savings strategy.
+
+This workflow aligns products to customer goals. If a savings component is identified, the Goal Agent (`goal`) queries the Goal Spending Insights Agent (`goal_spending_insights`) to design an optimized savings strategy, before routing to the Goal Profiler Agent (`goal_profiler`) and Goal Product Matcher Agent (`goal_product_matcher`).
 
 ```mermaid
 flowchart TD
     RootAgent["Root Agent (bank_agent)"]
     GoalAgent["Goal Agent (goal)"]
-    SpendingAgent["Spending Insights Agent (spending_insights)"]
-    ProfilerAgent["Financial Profiler Agent (financial_profiler)"]
-    MatcherAgent["Product Matcher Agent (product_matcher)"]
+    GoalSpendingInsightsAgent["Goal Spending Insights Agent (goal_spending_insights)"]
+    GoalProfilerAgent["Goal Profiler Agent (goal_profiler)"]
+    GoalMatcherAgent["Goal Product Matcher Agent (goal_product_matcher)"]
     T2["Tool: customer_database_search"]
     T3["Tool: get_available_products"]
     BQ[("BigQuery / SQLite")]
@@ -116,25 +131,24 @@ flowchart TD
     GoalAgent -- "2. Elicit goal & check for savings component" --> GoalAgent
 
     %% Branch: Savings Component
-    GoalAgent -- "3a. Has Savings Component: Request spending insights" --> SpendingAgent
-    SpendingAgent -- "4a. Fetch transactions" --> T2
+    GoalAgent -- "3a. Has Savings Component: Transfer" --> GoalSpendingInsightsAgent
+    GoalSpendingInsightsAgent -- "4a. Fetch transactions" --> T2
     T2 -- "Query Transactions" --> BQ
-    T2 -- "Return Data" --> SpendingAgent
-    SpendingAgent -- "5a. Return category breakdown & recommendations" --> GoalAgent
-    GoalAgent -- "6a. Transfer goal + spending insights" --> ProfilerAgent
+    T2 -- "Return Data" --> GoalSpendingInsightsAgent
+    GoalSpendingInsightsAgent -- "5a. Transfer goal + spending insights" --> GoalProfilerAgent
 
     %% Branch: No Savings Component
-    GoalAgent -- "3b. No Savings Component: Direct transfer" --> ProfilerAgent
+    GoalAgent -- "3b. No Savings Component: Direct transfer" --> GoalProfilerAgent
 
-    %% Common profiling and matching path
-    ProfilerAgent -- "7. Fetch holdings & demographics" --> T2
+    %% Coordinated profiling and matching path
+    GoalProfilerAgent -- "7. Fetch holdings & demographics" --> T2
     T2 -- "Query holdings/demographics" --> BQ
-    T2 -- "Return Data" --> ProfilerAgent
-    ProfilerAgent -- "8. Synthesize profile + savings strategy & transfer" --> MatcherAgent
-    MatcherAgent -- "9. Query product catalog" --> T3
+    T2 -- "Return Data" --> GoalProfilerAgent
+    GoalProfilerAgent -- "8. Synthesize profile + savings strategy & transfer" --> GoalMatcherAgent
+    GoalMatcherAgent -- "9. Query product catalog" --> T3
     T3 -- "Query Products Table" --> BQ
-    T3 -- "Return Catalog" --> MatcherAgent
-    MatcherAgent -- "10. Deliver goal-aligned recommendations" --> User
+    T3 -- "Return Catalog" --> GoalMatcherAgent
+    GoalMatcherAgent -- "10. Deliver goal-aligned recommendations" --> User
 ```
 
 ### Agent Roles
@@ -628,7 +642,7 @@ To allow external clients, such as a **Flutter application**, to interact direct
 
 Sends a message to the EDB agent EDB-Hackathon-Starter E.g. EDB-Hackathon-Starter/ADKAgents and receives a simplified flat text response.
 
-* **Request Body** (`application/json`):
+- **Request Body** (`application/json`):
   ```json
   {
     "user_id": "Alice",
@@ -636,7 +650,7 @@ Sends a message to the EDB agent EDB-Hackathon-Starter E.g. EDB-Hackathon-Starte
     "message": "Please verify me as C001 and recommend some banking products"
   }
   ```
-* **Response Body** (`application/json`):
+- **Response Body** (`application/json`):
   ```json
   {
     "response": "Hello Alice! I've successfully verified your identity. Based on your current profile, I recommend the Lloyds Easy Saver account (interest rate: 1.50%)...",
